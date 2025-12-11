@@ -5,6 +5,19 @@ import Layout from "@/components/Layout";
 import Animate from "@/components/Animate";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLaptopCode,
+  faChartLine,
+  faScrewdriverWrench,
+  faChalkboardUser,
+  faCubes,
+  faCalendarCheck,
+  faUserCheck,
+  faChalkboardTeacher,
+  faShieldHalved,
+} from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -47,22 +60,40 @@ const slides = [
 
 const services = [
   {
-    title: "Web Development",
+    title: "Website Development",
     description:
-      "Professional school websites, portals, results systems, and chatbots focused on performance and ease.",
-    href: "/services",
+      "Modern, accessible sites and portals tailored for schools and organizations.",
+    icon: faLaptopCode,
   },
   {
-    title: "Tech Training",
+    title: "WhatsApp Chatbot",
     description:
-      "Hands-on Google Classroom and digital literacy workshops designed for educators and students.",
-    href: "/services",
+      "Parent-teacher messaging and FAQs through reliable WhatsApp automation.",
+    icon: faWhatsapp,
   },
   {
-    title: "Integration & Support",
+    title: "SEO Optimization",
     description:
-      "API integrations, automation, and ongoing support that keep your tools reliable and secure.",
-    href: "/services",
+      "Search-friendly content and performance tuning so your school is easy to find.",
+    icon: faChartLine,
+  },
+  {
+    title: "Website Maintenance & Management",
+    description:
+      "Updates, monitoring, backups, and support to keep your site secure and fast.",
+    icon: faScrewdriverWrench,
+  },
+  {
+    title: "School Google Workspace Training",
+    description:
+      "Hands-on Google Classroom and Workspace workshops for teachers and students.",
+    icon: faChalkboardUser,
+  },
+  {
+    title: "Custom Web & App Development",
+    description:
+      "Tailored apps, integrations, and automation built on modern stacks.",
+    icon: faCubes,
   },
 ];
 
@@ -105,10 +136,10 @@ export default function Home() {
           {slides.map((slide) => (
             <SwiperSlide key={slide.title}>
               <div
-                className="flex min-h-[80vh] items-center justify-center bg-cover bg-center lg:min-h-[90vh]"
+                className="group flex min-h-[80vh] items-center justify-center bg-cover bg-center lg:min-h-[90vh]"
                 style={{ backgroundImage: slide.background }}
               >
-                <div className="flex w-full max-w-5xl flex-col gap-6 rounded-3xl bg-black/40 p-8 text-center text-white backdrop-blur-sm sm:p-12 lg:p-14">
+                <div className="hero-overlay flex w-full max-w-5xl flex-col gap-6 rounded-3xl bg-black/40 p-8 text-center text-white backdrop-blur-sm transition duration-300 sm:p-12 lg:p-14">
                   <Animate className="flex flex-col gap-4">
                     <span className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">
                       Ingenio Systems
@@ -135,27 +166,37 @@ export default function Home() {
         </Swiper>
       </section>
 
-      <section className="mb-16 flex flex-col gap-8">
+      <section className="mb-14 flex flex-col gap-8 pt-4">
         <Animate className="flex flex-col gap-2 text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
             Services
           </span>
           <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
-            Built for education, ready for growth
+            Services we provide
           </h2>
           <p className="text-lg text-slate-700">
-            Lightweight, modern solutions and training that make schools more effective.
+            Purpose-built solutions for schools and organizations, backed by reliable support.
           </p>
         </Animate>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Animate key={service.title} delay={index * 60}>
-              <article className="accent-card h-full p-6">
-                <h3 className="text-xl font-semibold text-slate-900">{service.title}</h3>
-                <p className="mt-3 text-slate-700">{service.description}</p>
-                <Link href={service.href} className="mt-4 inline-flex items-center text-gold font-semibold">
-                  Learn more →
-                </Link>
+              <article className="accent-card h-full p-5 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+                <div className="flex items-start gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-light text-lg text-slate-900">
+                    <FontAwesomeIcon icon={service.icon} />
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-slate-900">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-700">{service.description}</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-between text-sm font-semibold text-gold">
+                  <span>Learn more</span>
+                  <span aria-hidden>→</span>
+                </div>
               </article>
             </Animate>
           ))}

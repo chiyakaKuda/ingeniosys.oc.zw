@@ -81,6 +81,14 @@ a {
   transform: translateY(0);
 }
 
+.hero-overlay {
+  transform: scale(1);
+}
+
+.group:hover .hero-overlay {
+  transform: scale(1.02);
+}
+
 .full-bleed {
   position: relative;
   left: 50%;
