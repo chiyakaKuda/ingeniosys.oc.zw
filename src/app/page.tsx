@@ -99,20 +99,24 @@ const services = [
 
 const benefits = [
   {
-    title: "Education-first",
-    description: "Built for schools and institutions with real classroom needs in mind.",
+    title: "Flexible delivery",
+    description: "We adapt to your calendar to minimize classroom disruption.",
+    icon: faCalendarCheck,
   },
   {
-    title: "Agile & personal",
-    description: "Direct access to the two-person team—no handoffs, faster delivery.",
+    title: "Personalized programs",
+    description: "Solutions and training tailored to each school’s needs and teams.",
+    icon: faUserCheck,
   },
   {
-    title: "Affordable impact",
-    description: "Solutions priced for educational budgets without sacrificing quality.",
+    title: "Expert instructors",
+    description: "Hands-on guidance from a senior engineer and a training-focused CEO.",
+    icon: faChalkboardTeacher,
   },
   {
-    title: "Modern stack",
-    description: "Next.js, accessibility-first design, and performance baked in.",
+    title: "Reliable + secure",
+    description: "Best practices for uptime, data protection, and long-term maintainability.",
+    icon: faShieldHalved,
   },
 ];
 
@@ -203,21 +207,45 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mb-16 flex flex-col gap-8">
-        <Animate className="flex flex-col gap-2 text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-            Why choose us
-          </span>
-          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
-            Small, focused, and built for impact
-          </h2>
-        </Animate>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="mb-16 rounded-3xl bg-[#f1f7f1] px-4 py-10 sm:px-6 lg:px-10">
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-2">
+            <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Why choose us?</h2>
+            <p className="max-w-2xl text-sm text-slate-700">
+              Our commitment is to your outcomes: fast delivery, dedicated support, and training
+              that meets your teams where they are.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="btn btn-primary w-full max-w-[180px] sm:w-auto"
+            aria-label="Join now"
+          >
+            Join now
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, index) => (
             <Animate key={benefit.title} delay={index * 60}>
-              <article className="accent-card h-full p-5">
-                <h3 className="text-lg font-semibold text-slate-900">{benefit.title}</h3>
-                <p className="mt-2 text-slate-700">{benefit.description}</p>
+              <article className="flex h-full flex-col rounded-2xl bg-[#e7f0e7] p-5 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-lg text-slate-900 shadow-sm">
+                    <FontAwesomeIcon icon={benefit.icon} />
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="text-base font-semibold text-slate-900">{benefit.title}</h3>
+                    <p className="mt-2 text-sm text-slate-700">{benefit.description}</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-between text-sm font-semibold text-slate-800">
+                  <span className="flex items-center gap-2">
+                    <span className="block h-6 w-1 rounded-full bg-[#6bd66b]" />
+                    Learn more
+                  </span>
+                  <span aria-hidden className="text-slate-900">
+                    →
+                  </span>
+                </div>
               </article>
             </Animate>
           ))}
