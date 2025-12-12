@@ -170,87 +170,116 @@ export default function Home() {
         </Swiper>
       </section>
 
-      <section className="mb-14 flex flex-col gap-8 pt-4">
-        <Animate className="flex flex-col gap-2 text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-            Services
-          </span>
-          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
-            Services we provide
-          </h2>
-          <p className="text-lg text-slate-700">
-            Purpose-built solutions for schools and organizations, backed by reliable support.
-          </p>
-        </Animate>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <Animate key={service.title} delay={index * 60}>
-              <article className="accent-card h-full p-5 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-                <div className="flex items-start gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-light text-lg text-slate-900">
-                    <FontAwesomeIcon icon={service.icon} />
-                  </span>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-slate-900">
-                      {service.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-slate-700">{service.description}</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-between text-sm font-semibold text-gold">
-                  <span>Learn more</span>
-                  <span aria-hidden>→</span>
-                </div>
-              </article>
-            </Animate>
-          ))}
-        </div>
-      </section>
+ 
 
-      <section className="mb-16 rounded-3xl bg-[#f1f7f1] px-4 py-10 sm:px-6 lg:px-10 ">
-        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-col gap-2">
-            <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Why choose us?</h2>
-            <p className="max-w-2xl text-sm text-slate-700">
-              Our commitment is to your outcomes: fast delivery, dedicated support, and training
-              that meets your teams where they are.
-            </p>
+
+
+<section className="mb-14 flex flex-col gap-8 pt-4">
+  <Animate className="flex flex-col gap-2 text-center">
+    <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
+      Services
+    </span>
+    <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+      Services we provide
+    </h2>
+    <p className="text-lg text-slate-700">
+      Purpose-built solutions for schools and organizations, backed by reliable support.
+    </p>
+  </Animate>
+
+  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {services.map((service, index) => (
+      <Animate key={service.title} delay={index * 60}>
+        {/* Card wrapper */}
+        <Link
+          href="/services"
+          className="group block h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]"
+        >
+          <div className="flex items-start gap-4">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-light text-lg text-green-600 transition-colors duration-300 group-hover:bg-[var(--color-light)] group-hover:text-green-700">
+              <FontAwesomeIcon icon={service.icon} />
+            </span>
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-slate-900 transition-colors duration-300 group-hover:text-[var(--color-gold)]">
+                {service.title}
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">{service.description}</p>
+            </div>
           </div>
-          <Link
-            href="/contact"
-            className="btn btn-primary w-full max-w-[180px] sm:w-auto"
-            aria-label="Join now"
-          >
-            Join now
-          </Link>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((benefit, index) => (
-            <Animate key={benefit.title} delay={index * 60}>
-              <article className="flex h-full flex-col rounded-2xl bg-[#e7f0e7] p-5 shadow-sm">
-                <div className="flex items-start gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-lg text-slate-900 shadow-sm">
-                    <FontAwesomeIcon icon={benefit.icon} />
-                  </span>
-                  <div className="flex-1">
-                    <h3 className="text-base font-semibold text-slate-900">{benefit.title}</h3>
-                    <p className="mt-2 text-sm text-slate-700">{benefit.description}</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-between text-sm font-semibold text-slate-800">
-                  <span className="flex items-center gap-2">
-                    <span className="block h-6 w-1 rounded-full bg-[#6bd66b]" />
-                    Learn more
-                  </span>
-                  <span aria-hidden className="text-slate-900">
-                    →
-                  </span>
-                </div>
-              </article>
-            </Animate>
-          ))}
-        </div>
-      </section>
+
+          {/* Learn more */}
+          <div className="mt-6 flex items-center justify-between text-sm font-semibold text-gold group-hover:text-[var(--color-gold)] transition-colors duration-300">
+            <span>Learn more</span>
+            <span className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1">
+              →{/* Or use FontAwesome arrow icon */}
+            </span>
+          </div>
+        </Link>
+      </Animate>
+    ))}
+  </div>
+</section>
+
+
+<section className="mb-16 rounded-3xl bg-[#f1f7f1] px-4 py-10 sm:px-6 lg:px-10">
+  <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div className="flex flex-col gap-2">
+      <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Why choose us?</h2>
+      <p className="max-w-2xl text-sm text-slate-700">
+        Our commitment is to your outcomes: fast delivery, dedicated support, and training
+        that meets your teams where they are.
+      </p>
+    </div>
+
+    <Link
+      href="/contact"
+      className="btn btn-primary w-full max-w-[180px] sm:w-auto"
+      aria-label="Join now"
+    >
+      Join now
+    </Link>
+  </div>
+
+  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {benefits.map((benefit, index) => (
+      <Animate key={benefit.title} delay={index * 60}>
+        {/* Card wrapper with gradient + border */}
+        <Link
+          href="/services"
+          className="group block h-full rounded-2xl p-6
+            bg-gradient-to-br from-[#e0f7ea] via-[#daf3e1] to-[#e7f0e7]
+            border border-green-300
+            shadow-[0_8px_24px_rgba(0,0,0,0.05)]
+            transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_12px_36px_rgba(0,0,0,0.08)]"
+        >
+          <div className="flex items-start gap-4">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-lg text-green-600 shadow-sm transition-colors duration-300 group-hover:text-green-700">
+              <FontAwesomeIcon icon={benefit.icon} />
+            </span>
+            <div className="flex-1">
+              <h3 className="text-base font-semibold text-slate-900 transition-colors duration-300 group-hover:text-[var(--color-gold)]">
+                {benefit.title}
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">{benefit.description}</p>
+            </div>
+          </div>
+
+          {/* Learn more + arrow */}
+          <div className="mt-5 flex items-center justify-between text-sm font-semibold text-slate-800">
+            <span className="flex items-center gap-2 group-hover:text-[var(--color-gold)] transition-colors duration-300">
+              <span className="block h-6 w-1 rounded-full bg-green-600" />
+              Learn more
+            </span>
+            <span className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+        </Link>
+      </Animate>
+    ))}
+  </div>
+</section>
+
 
       <section className="mb-20">
 
