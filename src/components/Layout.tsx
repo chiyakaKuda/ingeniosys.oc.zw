@@ -33,7 +33,8 @@ export default function Layout({ children }: LayoutProps) {
               className="h-14 w-14 p-0 object-contain"
               priority
             />
-            <span className="text-lg">Ingenio Systems</span>
+          <span className="text-lg font-bold text-[var(--color-text)]"> Ingenio Systems </span>
+
           </Link>
           <ResponsiveNav items={navigation} />
         </div>

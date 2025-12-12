@@ -18,57 +18,77 @@ export default function ResponsiveNav({ items }: ResponsiveNavProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (open) {
-      setOpen(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (open) setOpen(false);
   }, [pathname]);
 
   return (
     <div className="relative">
-      <div className="hidden items-center gap-3 text-sm font-medium sm:flex sm:gap-4">
-        {items.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="rounded-full px-3 py-2 text-slate-800 transition hover:bg-white hover:text-slate-900"
-          >
-            {item.label}
-          </Link>
-        ))}
+
+      {/* DESKTOP NAV */}
+      <div className="hidden items-center gap-4 sm:flex">
+        {items.map((item) => {
+          const active = pathname === item.href;
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`
+                px-4 py-2 rounded-full text-base transition
+                font-semibold
+                ${
+                  active
+                    ? "bg-[var(--color-gold)] text-[var(--color-text)] font-bold shadow-sm"
+                    : "text-[var(--color-text)] hover:bg-[var(--color-light)]"
+                }
+              `}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </div>
 
+      {/* MOBILE TOGGLE BUTTON */}
       <button
         type="button"
         aria-label="Toggle navigation"
         aria-expanded={open}
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-sm sm:hidden"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[var(--color-text)] shadow-sm sm:hidden"
         onClick={() => setOpen((prev) => !prev)}
       >
-        <span className="sr-only">Menu</span>
         <div className="flex flex-col gap-1.5">
-          <span className="block h-0.5 w-6 bg-slate-800" />
-          <span className="block h-0.5 w-6 bg-slate-800" />
-          <span className="block h-0.5 w-6 bg-slate-800" />
+          <span className="block h-0.5 w-6 bg-[var(--color-text)]" />
+          <span className="block h-0.5 w-6 bg-[var(--color-text)]" />
+          <span className="block h-0.5 w-6 bg-[var(--color-text)]" />
         </div>
       </button>
 
+      {/* MOBILE MENU */}
       {open && (
         <div className="absolute right-0 top-14 z-30 w-48 rounded-2xl border border-slate-200 bg-white p-3 shadow-lg sm:hidden">
           <div className="flex flex-col gap-1">
-            {items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-xl px-3 py-2 text-sm font-medium text-slate-800 transition hover:bg-slate-50"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {items.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`
+                    rounded-xl px-3 py-2 text-sm transition font-semibold
+                    ${
+                      active
+                        ? "bg-[var(--color-gold)] text-[var(--color-text)] font-bold"
+                        : "text-[var(--color-text)] hover:bg-[var(--color-light)]"
+                    }
+                  `}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
     </div>
   );
 }
-
