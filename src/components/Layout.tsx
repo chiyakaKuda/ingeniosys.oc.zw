@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ResponsiveNav from "@/components/ResponsiveNav";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const navigation = [
   { href: "/", label: "Home" },
@@ -42,12 +45,67 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </main>
 
-      <footer className="border-t border-slate-200 bg-light">
-        <div className="mx-auto flex w-[95vw] max-w-7xl flex-col gap-2 px-4 py-6 text-sm text-slate-700 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-10">
-          <span>&copy; {year} Ingenio Systems. All rights reserved.</span>
-          <span className="text-muted">Built for modern, inclusive web experiences.</span>
-        </div>
-      </footer>
+      <footer className="footer-wrapper">
+  <div className="footer-content">
+    
+    {/* LEFT SIDE */}
+    <div className="footer-left">
+      <h4 className="footer-brand">Ingenio Systems</h4>
+      <p className="footer-tagline">
+        Building modern, inclusive digital experiences for schools and businesses.
+      </p>
+      <p className="footer-copy">© {year} Ingenio Systems. All rights reserved.</p>
+    </div>
+
+    {/* RIGHT SIDE — QUICK LINKS */}
+    <div className="footer-links">
+      <div>
+        <h5 className="footer-heading">Company</h5>
+        <ul>
+          <li><Link href="/about">About Us</Link></li>
+          <li><Link href="/services">Services</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 className="footer-heading">Resources</h5>
+        <ul>
+          <li><Link href="/blog">Blog</Link></li>
+          <li><Link href="/projects">Projects</Link></li>
+          <li><Link href="/careers">Careers</Link></li>
+        </ul>
+      </div>
+
+      <div>
+  <h5 className="footer-heading">Connect</h5>
+  <ul className="flex flex-col gap-2">
+    <li>
+      <a href="#">
+        <FontAwesomeIcon icon={faLinkedin} className="mr-2" />
+        LinkedIn
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <FontAwesomeIcon icon={faTwitter} className="mr-2" />
+        Twitter / X
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+        Email Support
+      </a>
+    </li>
+  </ul>
+</div>
+
+    </div>
+
+  </div>
+</footer>
+
     </div>
   );
 }

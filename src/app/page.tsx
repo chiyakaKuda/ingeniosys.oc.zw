@@ -207,7 +207,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mb-16 rounded-3xl bg-[#f1f7f1] px-4 py-10 sm:px-6 lg:px-10">
+      <section className="mb-16 rounded-3xl bg-[#f1f7f1] px-4 py-10 sm:px-6 lg:px-10 ">
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-2">
             <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">Why choose us?</h2>
@@ -252,67 +252,128 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mb-16 grid gap-8 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
-        <Animate className="flex flex-col gap-4">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-            About Ingenio Systems
-          </span>
-          <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
-            Bridging the tech gap through purposeful innovation
-          </h2>
-          <p className="text-lg text-slate-700">
-            We are a remote-first, two-person team dedicated to delivering
-            education-focused web platforms and practical training. Our mission
-            is to close the digital divide so every school and student can access
-            reliable, modern tools and the skills to use them effectively.
-          </p>
-          <div className="flex flex-wrap gap-3 text-sm font-semibold text-slate-800">
-            <span className="rounded-full bg-light px-3 py-2">Remote team of two</span>
-            <span className="rounded-full bg-light px-3 py-2">Education-first</span>
-            <span className="rounded-full bg-light px-3 py-2">Fast & personal</span>
-          </div>
-        </Animate>
-        <Animate delay={80} className="accent-card p-6">
-          <div className="rounded-2xl bg-gradient-to-br from-[var(--color-light)] via-white to-white p-6 shadow-inner">
-            <p className="text-lg font-semibold text-slate-900">Mission</p>
-            <p className="mt-2 text-slate-700">
-              Provide accessible, high-quality web development and tech training that help
-              educational institutions thrive in the modern digital landscape.
-            </p>
-            <div className="mt-4 h-px bg-slate-200" />
-            <p className="mt-4 text-lg font-semibold text-slate-900">Vision</p>
-            <p className="mt-2 text-slate-700">
-              A future where every school and student has reliable, modern tools and the
-              skills to use them effectively, creating equal opportunities nationwide.
-            </p>
-          </div>
-        </Animate>
-      </section>
+      <section className="mb-20">
 
-      <section className="mb-12">
-        <Animate className="accent-card flex flex-col gap-4 p-8 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-          <div className="flex flex-col gap-2">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">
-              Ready to transform your school?
-            </span>
-            <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-              Let’s build modern tools and training that make a difference.
-            </h3>
-            <p className="text-slate-700">
-              Tell us about your goals—web platforms, portals, chatbots, or workshops—and we’ll
-              respond within one business day.
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:shrink-0">
-            <Link href="/contact" className="btn btn-primary">
-              Contact us
-            </Link>
-            <Link href="/services" className="btn btn-secondary">
-              View services
-            </Link>
-          </div>
-        </Animate>
-      </section>
+{/* TOP: TEXT + STATS */}
+<div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-6 mb-10">
+  <div className="max-w-2xl">
+    <span className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
+      About Our Company
+    </span>
+
+    <h2 className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl leading-tight">
+      Bridging the Tech Gap in Education <br />
+      with Smart Web Solutions & Training
+    </h2>
+  </div>
+
+  {/* Stats – realistic for a 2-person startup */}
+  <div className="flex gap-10 pt-2 shrink-0 lowerSection">
+    <div>
+      <p className="text-2xl font-bold text-gray-900">5+</p>
+      <p className="text-sm text-gray-500">Clients Served</p>
+    </div>
+    <div>
+      <p className="text-2xl font-bold text-gray-900">2</p>
+      <p className="text-sm text-gray-500">Dedicated Experts</p>
+    </div>
+    <div>
+      <p className="text-2xl font-bold text-gray-900">10+</p>
+      <p className="text-sm text-gray-500">Workshops Delivered</p>
+    </div>
+  </div>
+</div>
+
+{/* BOTTOM GRID */}
+<div className="grid lg:grid-cols-2 gap-8">
+
+  {/* LEFT: IMAGE (replace with your team photo or abstract tech/education image) */}
+  <div className="rounded-2xl overflow-hidden shadow-lg">
+    <img
+      src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1600&q=80'" 
+      alt="Ingenio Systems – Empowering education through technology"
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+  {/* RIGHT: CARDS */}
+  <div className="grid gap-6">
+
+    {/* Row 1: Two cards side by side */}
+    <div className="grid md:grid-cols-2 gap-6">
+      <div className="rounded-2xl p-6 bg-[#E0F7FA] border border-cyan-100 shadow-sm">
+        <p className="text-lg font-semibold text-gray-900">Custom Web Development</p>
+        <p className="mt-2 text-gray-600 text-sm">
+          School websites, student portals, result systems & WhatsApp chatbots built fast and affordably.
+        </p>
+        <button className="mt-4 px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 transition">
+          See Projects
+        </button>
+      </div>
+
+      <div className="rounded-2xl p-6 bg-white border border-gray-200 shadow-sm">
+        <p className="text-lg font-semibold text-gray-900">Hands-On Tech Training</p>
+        <p className="mt-2 text-gray-600 text-sm">
+          Google Classroom mastery & digital literacy workshops for teachers and students.
+        </p>
+        <button className="mt-4 px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 transition">
+          View Workshops
+        </button>
+      </div>
+    </div>
+
+    {/* Row 2: Full-width Mission card */}
+    <div className="rounded-2xl p-6 bg-gradient-to-r from-[#FFD700]/10 to-[#E0F7FA]/50 border border-gray-200 shadow-sm">
+      <p className="text-lg font-semibold text-gray-900">Our Mission</p>
+      <p className="mt-2 text-gray-600 text-sm">
+        A lean, remote team of two on a mission to make modern technology accessible to every school 
+        and student in the country — closing the digital divide, one project and workshop at a time.
+      </p>
+      <button className="mt-4 px-5 py-2.5 rounded-lg bg-[#FFD700] text-white font-medium text-sm hover:opacity-90 transition">
+        Get in Touch
+      </button>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+
+<section className="cta-section mb-16">
+  <Animate className="cta-card flex flex-col gap-6 p-10 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+    
+    {/* LEFT SIDE */}
+    <div className="flex flex-col gap-3 max-w-xl">
+      <span className="cta-badge">
+        Empower Your School Today
+      </span>
+
+      <h3 className="text-3xl font-extrabold text-[var(--color-text)] sm:text-4xl leading-tight">
+        Build smarter systems and digital experiences that truly make an impact.
+      </h3>
+
+      <p className="text-[var(--color-muted)] text-lg">
+        From school portals to AI-powered tools—tell us your goals and get a response
+        within one business day.
+      </p>
+    </div>
+
+    {/* RIGHT BUTTONS */}
+    <div className="flex flex-col gap-4 sm:flex-row sm:shrink-0">
+      <Link href="/contact" className="cta-primary">
+        Contact Us
+      </Link>
+
+      <Link href="/services" className="cta-secondary">
+        View Services
+      </Link>
+    </div>
+
+  </Animate>
+</section>
+
+
     </Layout>
   );
 }
