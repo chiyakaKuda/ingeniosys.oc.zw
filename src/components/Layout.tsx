@@ -5,7 +5,7 @@ import ResponsiveNav from "@/components/ResponsiveNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import Head from "next/head"; // Add this import
+import ChatWidget from "@/components/ChatWidget";
 
 const navigation = [
   { href: "/", label: "Home" },
@@ -23,10 +23,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
-      <Head>
-        {/* Tidio Live Chat Script – Replace YOUR_TIDIO_PUBLIC_KEY with your actual key */}
-        <script src="//code.tidio.co/f4jaytrnoukf8wfyhtisg4snaacq5z93.js" async></script>
-      </Head>
+      
 
       <div className="flex min-h-screen flex-col bg-[var(--color-white)] text-slate-900">
         <header className="border-b border-slate-200 bg-light">
@@ -131,6 +128,7 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </div>
         </footer>
+        <ChatWidget />
       </div>
     </>
   );
