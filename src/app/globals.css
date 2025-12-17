@@ -2,10 +2,11 @@
 
 :root {
   --color-white: #ffffff;
-  --color-light: #e0f7fa;
-  --color-gold: #ffd700;
-  --color-text: #0f172a;
-  --color-muted: #334155;
+  --color-gold: #ffd700;        /* Bright, bold gold — use sparingly for accents */
+  --color-green: #1e7e34;       /* Rich forest green — primary brand color */
+  --color-green-light: #d1fae5; /* Soft minty green for backgrounds */
+  --color-text: #1a1a1a;        /* Dark gray-black for body text */
+  --color-muted: #4b5563;       /* Slate gray for secondary text */
 }
 
 @theme inline {
@@ -20,6 +21,9 @@ body {
   overflow-x: hidden;
   margin: 0;          /* Remove margins */
   padding: 0;
+}
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -112,7 +116,7 @@ a {
 
 /* Optional – subtle backdrop blur on cards if you want extra polish */
 .lowerSection {
-  margin-top: 40px;   /* adjust as you need */
+  margin-top: 80px;   /* adjust as you need */
 }
 
 /*THIS IS CODE IS FOR THE SYLING OF THE CTA OF THE HME PAGE */
@@ -274,4 +278,32 @@ a {
   .hero-swiper .swiper-button-next {
     display: none;
   }
+}
+/*SERIVES PRICING SECTION ANIMATIONS*/
+/* Fade + Slide Up Animation for Tab Content */
+.animate-fade-slide {
+  animation: fadeSlideUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: Enhance your existing scroll animation */
+.animate-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

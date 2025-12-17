@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import Animate from "@/components/Animate";
@@ -16,6 +16,8 @@ import {
   faUserCheck,
   faChalkboardTeacher,
   faShieldHalved,
+  faUserTie,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import "swiper/css";
@@ -120,6 +122,54 @@ const benefits = [
   },
 ];
 
+
+const stats = [
+  { icon: faUsers, label: "Clients Served", value: 5 },
+  { icon: faUserTie, label: "Dedicated Experts", value: 2 },
+  { icon: faChalkboardTeacher, label: "Workshops Delivered", value: 10 },
+];
+
+// --- STATS COMPONENT ---
+function Stats() {
+  const [counts, setCounts] = useState(stats.map(() => 0));
+
+  useEffect(() => {
+    let animationFrame: number;
+    const duration = 10000; // animation duration in ms
+    const start = performance.now();
+
+    const animate = (time: number) => {
+      const progress = Math.min((time - start) / duration, 1);
+      const newCounts = stats.map((stat) => Math.ceil(stat.value * progress));
+      setCounts(newCounts);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
+
+  return (
+    <div className="flex gap-8 mt-6 lg:mt-0 lowerSection">
+      {stats.map((stat, index) => (
+        <div key={stat.label} className="flex flex-col items-start gap-2">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600">
+            <FontAwesomeIcon icon={stat.icon} />
+          </span>
+          <p className="text-3xl font-bold text-gray-900">
+            {counts[index]}
+            {stat.label === "Clients Served" || stat.label === "Workshops Delivered" ? "+" : ""}
+          </p>
+          <p className="text-sm text-gray-500">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
 export default function Home() {
   return (
     <Layout>
@@ -281,100 +331,122 @@ export default function Home() {
 </section>
 
 
-      <section className="mb-20">
+<section className="mb-20 px-4 sm:px-6 lg:px-10">
+  {/* TOP: TEXT + STATS */}
+  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-10 mb-12">
+    <div className="max-w-2xl">
+      <span className="text-sm font-semibold uppercase tracking-widest text-gray-400">
+        About Our Company
+      </span>
 
-{/* TOP: TEXT + STATS */}
-<div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-6 mb-10">
-  <div className="max-w-2xl">
-    <span className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
-      About Our Company
-    </span>
+      <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-gray-900 leading-snug">
+        Bridging the Tech Gap in Education <br />
+        with Smart Web Solutions & Training
+      </h2>
 
-    <h2 className="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl leading-tight">
-      Bridging the Tech Gap in Education <br />
-      with Smart Web Solutions & Training
-    </h2>
-  </div>
-
-  {/* Stats – realistic for a 2-person startup */}
-  <div className="flex gap-10 pt-2 shrink-0 lowerSection">
-    <div>
-      <p className="text-2xl font-bold text-gray-900">5+</p>
-      <p className="text-sm text-gray-500">Clients Served</p>
-    </div>
-    <div>
-      <p className="text-2xl font-bold text-gray-900">2</p>
-      <p className="text-sm text-gray-500">Dedicated Experts</p>
-    </div>
-    <div>
-      <p className="text-2xl font-bold text-gray-900">10+</p>
-      <p className="text-sm text-gray-500">Workshops Delivered</p>
-    </div>
-  </div>
-</div>
-
-{/* BOTTOM GRID */}
-<div className="grid lg:grid-cols-2 gap-8">
-
-  {/* LEFT: IMAGE (replace with your team photo or abstract tech/education image) */}
-  <div className="rounded-2xl overflow-hidden shadow-lg">
-    <img
-      src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1600&q=80'" 
-      alt="Ingenio Systems – Empowering education through technology"
-      className="w-full h-full object-cover"
-    />
-  </div>
-
-  {/* RIGHT: CARDS */}
-  <div className="grid gap-6">
-
-    {/* Row 1: Two cards side by side */}
-    <div className="grid md:grid-cols-2 gap-6">
-      <div className="rounded-2xl p-6 bg-[#E0F7FA] border border-cyan-100 shadow-sm">
-        <p className="text-lg font-semibold text-gray-900">Custom Web Development</p>
-        <p className="mt-2 text-gray-600 text-sm">
-          School websites, student portals, result systems & WhatsApp chatbots built fast and affordably.
-        </p>
-        <button className="mt-4 px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 transition">
-          See Projects
-        </button>
-      </div>
-
-      <div className="rounded-2xl p-6 bg-white border border-gray-200 shadow-sm">
-        <p className="text-lg font-semibold text-gray-900">Hands-On Tech Training</p>
-        <p className="mt-2 text-gray-600 text-sm">
-          Google Classroom mastery & digital literacy workshops for teachers and students.
-        </p>
-        <button className="mt-4 px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 transition">
-          View Workshops
-        </button>
-      </div>
-    </div>
-
-    {/* Row 2: Full-width Mission card */}
-    <div className="rounded-2xl p-6 bg-gradient-to-r from-[#FFD700]/10 to-[#E0F7FA]/50 border border-gray-200 shadow-sm">
-      <p className="text-lg font-semibold text-gray-900">Our Mission</p>
-      <p className="mt-2 text-gray-600 text-sm">
-        A lean, remote team of two on a mission to make modern technology accessible to every school 
-        and student in the country — closing the digital divide, one project and workshop at a time.
+      <p className="mt-4 text-gray-600 text-base sm:text-lg">
+        We empower schools and organizations with purpose-built technology solutions,
+        hands-on training, and workshops to help students and teachers thrive in the digital world.
       </p>
-      <button className="mt-4 px-5 py-2.5 rounded-lg bg-[#FFD700] text-white font-medium text-sm hover:opacity-90 transition">
-        Get in Touch
-      </button>
     </div>
+
+    {/* Stats */}
+    {/* Stats */}
+    <div className="flex gap-8 mt-6 lg:mt-0 lowerSection">
+      <Stats />
+  </div>
+  </div>
+
+  {/* BOTTOM GRID */}
+  <div className="grid lg:grid-cols-2 gap-10 items-start">
+    {/* LEFT: IMAGE */}
+    <div className="relative rounded-3xl overflow-hidden shadow-lg group">
+  <img
+    src="/workshop-2.jpeg"
+    alt="Ingenio Systems – Empowering education through technology"
+    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
+    <p className="text-white text-lg sm:text-xl font-semibold leading-snug">
+      Technical Training Workshop handled by the Founder Godfrey Wapemha <br />
+      at Guinea Fowl High School.
+    </p>
   </div>
 </div>
+
+
+    {/* RIGHT: CARDS */}
+    <div className="grid gap-6">
+  {/* Row 1: Two small cards */}
+  <div className="grid md:grid-cols-2 gap-6">
+
+    <Link
+      href="/about"
+      className="block rounded-2xl p-6 bg-gradient-to-tr from-[#E0F7FA]/80 to-[#B2F0EB]/40 border border-cyan-200 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+    >
+      <p className="text-lg font-semibold text-gray-900">Custom Web Development</p>
+      <p className="mt-2 text-gray-600 text-sm">
+        School websites, student portals, result systems & WhatsApp chatbots built fast and affordably.
+      </p>
+      <span className="mt-4 inline-block px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium bg-white hover:bg-gray-50 transition">
+        See Projects
+      </span>
+    </Link>
+
+    <Link
+      href="/services"
+      className="block rounded-2xl p-6 bg-white border border-gray-200 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+    >
+      <p className="text-lg font-semibold text-gray-900">Hands-On Tech Training</p>
+      <p className="mt-2 text-gray-600 text-sm">
+        Google Classroom mastery & digital literacy workshops for teachers and students.
+      </p>
+      <span className="mt-4 inline-block px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:bg-gray-50 transition">
+        View Workshops
+      </span>
+    </Link>
+
+  </div>
+
+  {/* Row 2: Full-width Mission card */}
+  <Link
+    href="/contact"
+    className="block rounded-3xl p-6 bg-gradient-to-r from-[#FFD700]/20 to-[#E0F7FA]/50 border border-gray-200 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+  >
+    <p className="text-lg font-semibold text-gray-900">Our Mission</p>
+    <p className="mt-2 text-gray-600 text-sm sm:text-base">
+      A lean, remote team of two on a mission to make modern technology accessible to every school 
+      and student in the country — closing the digital divide, one project and workshop at a time.
+    </p>
+    <span className="mt-4 inline-block px-5 py-2.5 rounded-lg bg-[#FFD700] text-white font-medium text-sm hover:opacity-90 transition">
+      Get in Touch
+    </span>
+  </Link>
+</div>
+
+  </div>
 </section>
 
 
 
+<section className="cta-section mb-16 relative overflow-hidden rounded-3xl">
+  {/* Background Gradient + Pattern */}
+  <div 
+    className="absolute inset-0 bg-gradient-to-br from-[var(--color-green-light)] via-white to-[var(--color-green-light)] opacity-70 rounded-3xl"
+  ></div>
+  
+  {/* Subtle pattern overlay */}
+  <div 
+    className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnPjxkZWZzPjxwYXR0ZXJuIGlkPSdncmlkJyB3aWR0aD0nNjAwJyBoZWlnaHQ9JzYwMCcgcGF0dGVyblVuaXRzPSd1c2VyU3BhY2VPblVzZSc+PGNpcmNsZSBjeD0nMzAwJyBjeT0nMzAwJyByPScxLjUnIGZpbGw9JyM3YjdmNzEnIG9wYWNpdHk9JzAuMScvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsbD0ndXJsKCNncmlkKScvPjwvc3ZnPg==')]" 
+  ></div>
 
-<section className="cta-section mb-16">
-  <Animate className="cta-card flex flex-col gap-6 p-10 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+  <Animate className="cta-card relative z-10 flex flex-col gap-6 p-10 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left rounded-3xl bg-white/90 backdrop-blur-sm border border-[var(--color-green-light)] shadow-2xl">
     
     {/* LEFT SIDE */}
     <div className="flex flex-col gap-3 max-w-xl">
-      <span className="cta-badge">
+      <span className="cta-badge inline-block px-4 py-2 bg-[var(--color-green)] text-white font-semibold rounded-full text-sm uppercase tracking-wide">
         Empower Your School Today
       </span>
 
@@ -382,23 +454,27 @@ export default function Home() {
         Build smarter systems and digital experiences that truly make an impact.
       </h3>
 
-      <p className="text-[var(--color-muted)] text-lg">
-        From school portals to AI-powered tools—tell us your goals and get a response
-        within one business day.
+      <p className="text-[var(--color-muted)] text-lg leading-relaxed">
+        From school portals to AI-powered tools—tell us your goals and get a response within one business day.
       </p>
     </div>
 
     {/* RIGHT BUTTONS */}
     <div className="flex flex-col gap-4 sm:flex-row sm:shrink-0">
-      <Link href="/contact" className="cta-primary">
+      <Link 
+        href="/contact" 
+        className="cta-primary inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[var(--color-green)] to-[var(--color-green-light)] text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+      >
         Contact Us
       </Link>
 
-      <Link href="/services" className="cta-secondary">
+      <Link 
+        href="/services" 
+        className="cta-secondary inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-[var(--color-green)] text-[var(--color-green)] font-semibold text-lg rounded-full shadow-lg hover:bg-[var(--color-green-light)] hover:text-white transition-all duration-300"
+      >
         View Services
       </Link>
     </div>
-
   </Animate>
 </section>
 
