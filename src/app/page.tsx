@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import Animate from "@/components/Animate";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faArrowRight,
   faLaptopCode,
+  faMobileScreenButton,
   faChartLine,
   faScrewdriverWrench,
   faChalkboardUser,
@@ -20,44 +20,33 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
 
-const slides = [
+const heroHighlights = [
   {
-    title: "Modern web solutions for schools",
-    subtitle: "Student portals, chatbots, and results systems tailored to education.",
-    ctaPrimary: { href: "/services", label: "Explore services" },
-    ctaSecondary: { href: "/contact", label: "Talk to us" },
-    background:
-      "linear-gradient(135deg, rgba(0, 156, 173, 0.72), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1600&q=80')",
+    title: "Authentic discovery",
+    description:
+      "We learn the real workflow, friction points, and user needs before we suggest the product.",
+    icon: faUserCheck,
   },
   {
-    title: "Hands-on tech training",
-    subtitle: "Google Classroom workshops that empower teachers and students.",
-    ctaPrimary: { href: "/services", label: "See training" },
-    ctaSecondary: { href: "/contact", label: "Book a session" },
-    background:
-      "linear-gradient(135deg, rgba(255, 215, 0, 0.68), rgba(15, 23, 42, 0.55)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1600&q=80')",
+    title: "High-quality delivery",
+    description:
+      "From websites to mobile apps, we build polished experiences backed by dependable engineering.",
+    icon: faMobileScreenButton,
   },
   {
-    title: "Bridging the tech gap nationwide",
-    subtitle: "Affordable digital transformation designed for local impact.",
-    ctaPrimary: { href: "/services", label: "Our approach" },
-    ctaSecondary: { href: "/contact", label: "Start a project" },
-    background:
-      "linear-gradient(135deg, rgba(0, 156, 173, 0.7), rgba(255, 215, 0, 0.55)), url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1600&q=80&sat=-30')",
+    title: "Solutions that fit",
+    description:
+      "The result is software that feels right for your organization and solves the problem clearly.",
+    icon: faShieldHalved,
   },
-  {
-    title: "Small team, big impact",
-    subtitle: "Direct access to the founders for fast, personal delivery.",
-    ctaPrimary: { href: "/services", label: "Work with us" },
-    ctaSecondary: { href: "/contact", label: "Contact" },
-    background:
-      "linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(0, 156, 173, 0.55)), url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80')",
-  },
+];
+
+const heroCapabilities = [
+  "Websites",
+  "Business Systems",
+  "Mobile Apps",
+  "Automation",
 ];
 
 const services = [
@@ -173,51 +162,109 @@ function Stats() {
 export default function Home() {
   return (
     <Layout>
-      <section className="relative mb-16 overflow-hidden border border-slate-200 shadow-sm full-bleed">
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{
-            delay: 4200,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          loop
-          speed={800}
-          className="hero-swiper"
-        >
-          {slides.map((slide) => (
-            <SwiperSlide key={slide.title}>
-              <div
-                className="group flex min-h-[80vh] items-center justify-center bg-cover bg-center lg:min-h-[90vh]"
-                style={{ backgroundImage: slide.background }}
+      <section className="relative mb-16 overflow-hidden full-bleed">
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,#061310_0%,#0d2c26_45%,#1e7e34_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.2),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(209,250,229,0.18),transparent_32%)]" />
+        <div className="absolute -left-20 top-20 h-64 w-64 rounded-full bg-white/6 blur-3xl" />
+        <div className="absolute bottom-10 right-0 h-72 w-72 rounded-full bg-[rgba(255,215,0,0.12)] blur-3xl" />
+
+        <div className="relative mx-auto grid min-h-[84vh] w-[95vw] max-w-7xl items-center gap-12 px-4 pb-20 pt-32 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-10 lg:pb-24 lg:pt-36">
+          <div className="text-white">
+            <Animate className="flex max-w-3xl flex-col gap-6">
+              <span className="inline-flex w-fit items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-gold)]">
+                Authentic Software Solutions
+              </span>
+              <h1 className="text-4xl font-black leading-[1.02] sm:text-5xl lg:text-7xl">
+                High-quality software that solves the real problem, not just the
+                first request.
+              </h1>
+              <p className="max-w-2xl text-lg leading-relaxed text-white/82 sm:text-xl">
+                We design websites, mobile apps, portals, and automation
+                systems that fit how your organization actually works. If you
+                need an authentic solution built with care, clarity, and quality,
+                we are right here.
+              </p>
+            </Animate>
+
+            <Animate
+              className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center"
+              delay={120}
+            >
+              <Link
+                href="/quote"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[var(--color-gold)] px-7 py-4 text-base font-semibold text-slate-950 shadow-[0_18px_40px_rgba(255,215,0,0.2)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_rgba(255,215,0,0.25)]"
               >
-                <div className="hero-overlay flex w-full max-w-5xl flex-col gap-6 rounded-3xl bg-black/40 p-8 text-center text-white backdrop-blur-sm transition duration-300 sm:p-12 lg:p-14">
-                  <Animate className="flex flex-col gap-4">
-                    <span className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">
-                      Ingenio Systems
-                    </span>
-                    <h1 className="text-4xl font-bold leading-tight sm:text-5xl">
-                      {slide.title}
-                    </h1>
-                    <p className="text-lg leading-relaxed text-slate-100">
-                      {slide.subtitle}
-                    </p>
-                  </Animate>
-                  <Animate className="flex flex-col gap-3 sm:flex-row sm:justify-center" delay={120}>
-                    <Link href={slide.ctaPrimary.href} className="btn btn-primary">
-                      {slide.ctaPrimary.label}
-                    </Link>
-                    <Link href={slide.ctaSecondary.href} className="btn btn-secondary">
-                      {slide.ctaSecondary.label}
-                    </Link>
-                  </Animate>
-                </div>
+                Get a Quote
+                <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
+              </Link>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-base font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/14"
+              >
+                See Portfolio
+                <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center text-sm font-semibold text-white/84 underline-offset-4 transition hover:text-white hover:underline"
+              >
+                Explore all services
+              </Link>
+            </Animate>
+
+            <Animate className="mt-8 flex flex-wrap gap-3" delay={180}>
+              {heroCapabilities.map((capability) => (
+                <span
+                  key={capability}
+                  className="rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm font-medium text-white/78"
+                >
+                  {capability}
+                </span>
+              ))}
+            </Animate>
+          </div>
+
+          <Animate className="relative" delay={140}>
+            <div className="overflow-hidden rounded-[2rem] border border-white/12 bg-white/10 p-7 text-white shadow-[0_24px_60px_rgba(2,8,23,0.28)] backdrop-blur-xl sm:p-8">
+              <div className="rounded-full border border-white/12 bg-slate-950/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-gold)]">
+                Tell us the problem. We will shape the solution.
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              <h2 className="mt-6 max-w-md text-3xl font-bold leading-tight sm:text-4xl">
+                Software that looks good, works properly, and makes sense for
+                the people using it.
+              </h2>
+              <p className="mt-4 max-w-lg text-base leading-relaxed text-white/76 sm:text-lg">
+                We do not force generic templates onto your business. We build
+                around your goals, your users, and the actual issue that needs
+                to be solved.
+              </p>
+
+              <div className="mt-8 grid gap-4">
+                {heroHighlights.map((highlight, index) => (
+                  <Animate
+                    key={highlight.title}
+                    delay={index * 70}
+                    className="rounded-[1.5rem] border border-white/10 bg-slate-950/28 p-5"
+                  >
+                    <div className="flex items-start gap-4">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-[var(--color-gold)]">
+                        <FontAwesomeIcon icon={highlight.icon} className="text-lg" />
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">
+                          {highlight.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-white/72">
+                          {highlight.description}
+                        </p>
+                      </div>
+                    </div>
+                  </Animate>
+                ))}
+              </div>
+            </div>
+          </Animate>
+        </div>
       </section>
 
  
@@ -230,10 +277,10 @@ export default function Home() {
       Services
     </span>
     <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
-      Services we provide
+      Solutions we build
     </h2>
     <p className="text-lg text-slate-700">
-      Purpose-built solutions for schools and organizations, backed by reliable support.
+      Purpose-built software for schools, businesses, and growing organizations, backed by reliable support.
     </p>
   </Animate>
 

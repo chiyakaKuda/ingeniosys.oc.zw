@@ -2,6 +2,7 @@
 
 :root {
   --color-white: #ffffff;
+  --color-light: #eff7f1;
   --color-gold: #ffd700;        /* Bright, bold gold — use sparingly for accents */
   --color-green: #1e7e34;       /* Rich forest green — primary brand color */
   --color-green-light: #d1fae5; /* Soft minty green for backgrounds */
