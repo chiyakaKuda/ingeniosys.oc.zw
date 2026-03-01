@@ -18,7 +18,7 @@
 }
 
 body {
-  @apply bg-[var(--color-white)] text-slate-900 antialiased;
+  @apply bg-[var(--color-white)] text-[var(--color-text)] antialiased;
   overflow-x: hidden;
   margin: 0;          /* Remove margins */
   padding: 0;
@@ -73,7 +73,8 @@ a {
 }
 
 .accent-card {
-  @apply rounded-3xl border border-slate-200 bg-white shadow-sm;
+  @apply rounded-3xl bg-white shadow-sm;
+  border: 1px solid rgba(30, 126, 52, 0.14);
 }
 
 .animate-scroll {

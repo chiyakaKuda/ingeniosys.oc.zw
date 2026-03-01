@@ -35,7 +35,7 @@ const portfolioItems = [
 export default function PortfolioPage() {
   return (
     <Layout>
-      <section className="full-bleed relative overflow-hidden bg-gradient-to-br from-[#edf7ef] via-white to-[#e7f1fb] pb-24 pt-32">
+      <section className="full-bleed relative overflow-hidden bg-gradient-to-br from-[var(--color-light)] via-white to-[var(--color-green-light)]/70 pb-24 pt-32">
         <div className="mx-auto max-w-6xl px-6 text-center lg:px-12">
           <Animate>
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[var(--color-green)]">
@@ -57,7 +57,7 @@ export default function PortfolioPage() {
         <div className="grid gap-6 lg:grid-cols-3">
           {portfolioItems.map((item, index) => (
             <Animate key={item.title} delay={index * 80}>
-              <div className="h-full rounded-[30px] border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,23,42,0.1)]">
+              <div className="h-full rounded-[30px] border border-[rgba(30,126,52,0.14)] bg-white p-8 shadow-[0_18px_40px_rgba(15,58,54,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,58,54,0.1)]">
                 <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--color-green-light)] text-[var(--color-green)]">
                   <FontAwesomeIcon icon={item.icon} className="text-xl" />
                 </span>
@@ -73,7 +73,7 @@ export default function PortfolioPage() {
         </div>
 
         <Animate delay={220}>
-          <div className="mt-10 rounded-[36px] bg-[var(--color-text)] px-8 py-10 text-white shadow-[0_24px_55px_rgba(15,23,42,0.18)]">
+          <div className="mt-10 rounded-[36px] bg-[linear-gradient(135deg,#0F3A36_0%,var(--color-green)_100%)] px-8 py-10 text-white shadow-[0_24px_55px_rgba(15,58,54,0.18)]">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--color-gold)]">
               Next Project
             </p>
@@ -86,7 +86,7 @@ export default function PortfolioPage() {
             </p>
             <Link
               href="/quote"
-              className="mt-6 inline-flex items-center gap-3 rounded-full bg-[var(--color-gold)] px-6 py-3 font-semibold text-slate-950 transition hover:-translate-y-0.5"
+              className="mt-6 inline-flex items-center gap-3 rounded-full bg-[var(--color-gold)] px-6 py-3 font-semibold text-[var(--color-text)] transition hover:-translate-y-0.5"
             >
               Start A Quote
               <FontAwesomeIcon icon={faArrowRight} className="text-sm" />

@@ -53,13 +53,13 @@ export default function Layout({ children }: LayoutProps) {
 
   const inverted = isHome && !scrolled;
   const headerShellClasses = inverted
-    ? "border-white/15 bg-slate-950/38 text-white shadow-[0_26px_70px_rgba(15,23,42,0.35)] backdrop-blur-xl"
-    : "border-slate-200/80 bg-white/90 text-slate-900 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur-xl";
+    ? "border-white/15 bg-[rgba(15,58,54,0.38)] text-white shadow-[0_26px_70px_rgba(15,58,54,0.24)] backdrop-blur-xl"
+    : "border-[rgba(30,126,52,0.12)] bg-white/92 text-[var(--color-text)] shadow-[0_18px_45px_rgba(15,58,54,0.08)] backdrop-blur-xl";
   const brandTextClass = inverted ? "text-white" : "text-[var(--color-text)]";
-  const brandMetaClass = inverted ? "text-white/72" : "text-slate-500";
+  const brandMetaClass = inverted ? "text-white/72" : "text-[var(--color-muted)]";
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--color-white)] text-slate-900">
+    <div className="flex min-h-screen flex-col bg-[var(--color-white)] text-[var(--color-text)]">
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex w-[95vw] max-w-7xl justify-center px-2 sm:px-4 lg:px-6">
           <div
@@ -99,7 +99,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </main>
 
-      <footer className="border-t border-slate-100 bg-gradient-to-br from-[var(--color-green-light)]/30 to-white text-[var(--color-text-light)]">
+      <footer className="border-t border-[rgba(30,126,52,0.12)] bg-gradient-to-br from-[var(--color-green-light)]/55 via-white to-[var(--color-light)] text-[var(--color-text)]">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-16">
             <div className="flex flex-col items-start md:col-span-1">
@@ -117,11 +117,11 @@ export default function Layout({ children }: LayoutProps) {
                   Ingenio Systems
                 </h4>
               </div>
-              <p className="mb-6 leading-relaxed text-[var(--color-text-muted)]">
+              <p className="mb-6 leading-relaxed text-[var(--color-muted)]">
                 Building web platforms, mobile apps, portals, and business software
                 for schools, startups, NGOs, and growing companies.
               </p>
-              <p className="text-sm text-[var(--color-text-muted)]">
+              <p className="text-sm text-[var(--color-muted)]">
                 Copyright {year} Ingenio Systems. All rights reserved.
               </p>
             </div>
@@ -135,7 +135,7 @@ export default function Layout({ children }: LayoutProps) {
                   <li>
                     <Link
                       href="/services"
-                      className="inline-block text-[var(--color-text-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
+                      className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
                     >
                       Services
                     </Link>
@@ -143,7 +143,7 @@ export default function Layout({ children }: LayoutProps) {
                   <li>
                     <Link
                       href="/portfolio"
-                      className="inline-block text-[var(--color-text-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
+                      className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
                     >
                       Portfolio
                     </Link>
@@ -151,7 +151,7 @@ export default function Layout({ children }: LayoutProps) {
                   <li>
                     <Link
                       href="/about"
-                      className="inline-block text-[var(--color-text-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
+                      className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
                     >
                       About
                     </Link>
@@ -159,7 +159,7 @@ export default function Layout({ children }: LayoutProps) {
                   <li>
                     <Link
                       href="/quote"
-                      className="inline-block text-[var(--color-text-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
+                      className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
                     >
                       Get a Quote
                     </Link>
@@ -177,7 +177,7 @@ export default function Layout({ children }: LayoutProps) {
                       href="https://www.linkedin.com/company/ingenio-systems"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center text-[var(--color-text-muted)] transition-all hover:text-[var(--color-green)]"
+                      className="group flex items-center text-[var(--color-muted)] transition-all hover:text-[var(--color-green)]"
                     >
                       <FontAwesomeIcon
                         icon={faLinkedin}
@@ -191,7 +191,7 @@ export default function Layout({ children }: LayoutProps) {
                       href="https://twitter.com/ingeniosystems"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center text-[var(--color-text-muted)] transition-all hover:text-[var(--color-green)]"
+                      className="group flex items-center text-[var(--color-muted)] transition-all hover:text-[var(--color-green)]"
                     >
                       <FontAwesomeIcon
                         icon={faTwitter}
@@ -205,7 +205,7 @@ export default function Layout({ children }: LayoutProps) {
                       href="https://www.facebook.com/ingeniosystems"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center text-[var(--color-text-muted)] transition-all hover:text-[var(--color-green)]"
+                      className="group flex items-center text-[var(--color-muted)] transition-all hover:text-[var(--color-green)]"
                     >
                       <FontAwesomeIcon
                         icon={faFacebook}
@@ -217,7 +217,7 @@ export default function Layout({ children }: LayoutProps) {
                   <li>
                     <a
                       href="mailto:support@ingeniosystems.co.zw"
-                      className="group flex items-center text-[var(--color-text-muted)] transition-all hover:text-[var(--color-green)]"
+                      className="group flex items-center text-[var(--color-muted)] transition-all hover:text-[var(--color-green)]"
                     >
                       <FontAwesomeIcon
                         icon={faEnvelope}

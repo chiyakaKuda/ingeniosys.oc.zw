@@ -35,7 +35,7 @@ const quoteAreas = [
 export default function QuotePage() {
   return (
     <Layout>
-      <section className="full-bleed relative overflow-hidden bg-gradient-to-br from-slate-950 via-[#12332d] to-[var(--color-green)] pb-24 pt-32 text-white">
+      <section className="full-bleed relative overflow-hidden bg-gradient-to-br from-[#0F3A36] via-[#145346] to-[var(--color-green)] pb-24 pt-32 text-white">
         <div className="mx-auto max-w-6xl px-6 text-center lg:px-12">
           <Animate>
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)]">
@@ -51,7 +51,7 @@ export default function QuotePage() {
             </p>
             <Link
               href="/contact"
-              className="mt-10 inline-flex items-center gap-3 rounded-full bg-[var(--color-gold)] px-6 py-3 font-semibold text-slate-950 transition hover:-translate-y-0.5"
+              className="mt-10 inline-flex items-center gap-3 rounded-full bg-[var(--color-gold)] px-6 py-3 font-semibold text-[var(--color-text)] transition hover:-translate-y-0.5"
             >
               Send Project Details
               <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
@@ -64,7 +64,7 @@ export default function QuotePage() {
         <div className="grid gap-6 lg:grid-cols-3">
           {quoteAreas.map((item, index) => (
             <Animate key={item.title} delay={index * 80}>
-              <div className="h-full rounded-[30px] border border-slate-200 bg-white p-8 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
+              <div className="h-full rounded-[30px] border border-[rgba(30,126,52,0.14)] bg-white p-8 shadow-[0_18px_40px_rgba(15,58,54,0.06)]">
                 <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--color-green-light)] text-[var(--color-green)]">
                   <FontAwesomeIcon icon={item.icon} className="text-xl" />
                 </span>
@@ -80,7 +80,7 @@ export default function QuotePage() {
         </div>
 
         <Animate delay={220}>
-          <div className="mt-10 rounded-[36px] border border-slate-200 bg-[#f7faf8] px-8 py-10 shadow-[0_24px_55px_rgba(15,23,42,0.06)]">
+          <div className="mt-10 rounded-[36px] border border-[rgba(30,126,52,0.14)] bg-[var(--color-light)] px-8 py-10 shadow-[0_24px_55px_rgba(15,58,54,0.06)]">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[var(--color-green)]">
               What To Include
             </p>
