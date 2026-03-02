@@ -175,13 +175,13 @@ export default function ServicesPage() {
                 {deliveryPrinciples.map((principle) => (
                   <div
                     key={principle.title}
-                    className="rounded-[24px] border border-white/10 bg-black/10 px-5 py-4"
+                    className="overflow-hidden rounded-[999px] border border-white/10 bg-black/10 px-4 py-4 sm:px-5"
                   >
-                    <div className="flex items-start gap-4">
-                      <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-white/12 text-[var(--color-gold)]">
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/12 text-[var(--color-gold)]">
                         <FontAwesomeIcon icon={principle.icon} />
                       </span>
-                      <div>
+                      <div className="min-w-0">
                         <h3 className="text-lg font-semibold text-white">
                           {principle.title}
                         </h3>
