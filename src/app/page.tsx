@@ -108,10 +108,18 @@ export default function Home() {
   return (
     <Layout>
       <section className="relative mb-16 overflow-hidden full-bleed">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#0F3A36_0%,var(--color-green)_55%,#2f9448_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.16),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(209,250,229,0.14),transparent_30%)]" />
-        <div className="absolute -left-16 top-16 h-56 w-56 rounded-full bg-white/6 blur-3xl" />
-        <div className="absolute bottom-8 right-0 h-64 w-64 rounded-full bg-[rgba(255,215,0,0.08)] blur-3xl" />
+        <div className="absolute inset-0">
+          <Image
+            src="/team/tech.jpg"
+            alt="Technology-focused software development background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(9,21,35,0.86)_0%,rgba(15,58,54,0.78)_46%,rgba(25,167,186,0.52)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.16),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_30%)]" />
 
         <div className="relative mx-auto flex min-h-[100svh] w-[95vw] max-w-6xl items-center px-4 pb-20 pt-32 sm:px-6 lg:px-10 lg:pb-24 lg:pt-36">
           <div className="max-w-3xl text-white">

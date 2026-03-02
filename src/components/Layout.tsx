@@ -8,8 +8,7 @@ import ResponsiveNav from "@/components/ResponsiveNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
-  faLinkedin,
-  faTwitter,
+  faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faBriefcase,
@@ -174,30 +173,16 @@ export default function Layout({ children }: LayoutProps) {
                 <ul className="space-y-3">
                   <li>
                     <a
-                      href="https://www.linkedin.com/company/ingenio-systems"
+                      href="https://wa.me/263772800899"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex items-center text-[var(--color-muted)] transition-all hover:text-[var(--color-green)]"
                     >
                       <FontAwesomeIcon
-                        icon={faLinkedin}
+                        icon={faWhatsapp}
                         className="mr-3 text-xl transition-transform group-hover:scale-110"
                       />
-                      LinkedIn
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://twitter.com/ingeniosystems"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center text-[var(--color-muted)] transition-all hover:text-[var(--color-green)]"
-                    >
-                      <FontAwesomeIcon
-                        icon={faTwitter}
-                        className="mr-3 text-xl transition-transform group-hover:scale-110"
-                      />
-                      Twitter / X
+                      WhatsApp
                     </a>
                   </li>
                   <li>
@@ -212,18 +197,6 @@ export default function Layout({ children }: LayoutProps) {
                         className="mr-3 text-xl transition-transform group-hover:scale-110"
                       />
                       Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="mailto:support@ingeniosystems.co.zw"
-                      className="group flex items-center text-[var(--color-muted)] transition-all hover:text-[var(--color-green)]"
-                    >
-                      <FontAwesomeIcon
-                        icon={faEnvelope}
-                        className="mr-3 text-xl transition-transform group-hover:scale-110"
-                      />
-                      Email Support
                     </a>
                   </li>
                 </ul>

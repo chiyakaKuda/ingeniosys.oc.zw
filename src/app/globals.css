@@ -13,7 +13,7 @@
 @theme inline {
   --color-background: var(--color-white);
   --color-foreground: var(--color-text);
-  --font-sans: var(--font-poppins), system-ui, -apple-system, "Segoe UI",
+  --font-sans: var(--font-quicksand), system-ui, -apple-system, "Segoe UI",
     sans-serif;
 }
 
