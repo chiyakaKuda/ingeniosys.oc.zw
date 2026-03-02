@@ -1,444 +1,481 @@
-// src/components/PricingSection.tsx
 "use client";
 
 import { useState } from "react";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faStar } from "@fortawesome/free-solid-svg-icons";
-
-// Use your exact Animate component path
+import {
+  faArrowRight,
+  faCheckCircle,
+  faCommentDots,
+  faCubes,
+  faHeadset,
+  faLaptopCode,
+  faMobileScreenButton,
+} from "@fortawesome/free-solid-svg-icons";
 import Animate from "@/components/Animate";
 
-// Top 5 services as tabs
-import { 
-    faDesktop, 
-    faGraduationCap, 
-    faCommentDots, 
-    faLaptopCode, 
-    faHeadset 
-  } from '@fortawesome/free-solid-svg-icons';
-  
-const pricingTabs = [
-  { id: "websites", label: "School Websites", icon: faDesktop },
-  { id: "results", label: "Result Portals", icon: faGraduationCap },
-  { id: "chatbots", label: "WhatsApp Bots", icon: faCommentDots },
-  { id: "fullstack", label: "Custom Apps", icon: faLaptopCode },
-  { id: "support", label: "Support Plans", icon: faHeadset },
+type PricingTabId =
+  | "websites"
+  | "systems"
+  | "mobile"
+  | "automation"
+  | "support";
+
+type Accent = "green" | "gold" | "teal";
+
+type PricingPlan = {
+  title: string;
+  price: string;
+  recurring?: string;
+  description: string;
+  featured?: boolean;
+  accent: Accent;
+  features: string[];
+};
+
+const pricingTabs: Array<{
+  id: PricingTabId;
+  label: string;
+  icon: IconDefinition;
+}> = [
+  { id: "websites", label: "Websites", icon: faLaptopCode },
+  { id: "systems", label: "Systems", icon: faCubes },
+  { id: "mobile", label: "Mobile Apps", icon: faMobileScreenButton },
+  { id: "automation", label: "Automation", icon: faCommentDots },
+  { id: "support", label: "Support", icon: faHeadset },
 ];
 
-// Updated pricing data with realistic Zimbabwe school pricing
-const pricingData: Record<string, any[]> = {
+const pricingData: Record<PricingTabId, PricingPlan[]> = {
   websites: [
-    { 
-      title: "Starter", 
-      price: "$250", 
-      desc: "Perfect for small schools going digital.", 
-      featured: false, 
-      gradient: "from-blue-500 to-cyan-600",
+    {
+      title: "Starter Site",
+      price: "$350",
+      description:
+        "A focused brochure site or landing page for organizations that need credibility quickly.",
+      accent: "green",
       features: [
-        "5-page responsive website", 
-        "Mobile-optimized design", 
-        "Contact & enquiry forms", 
-        "1 year hosting included", 
-        "Basic SEO setup",
-        "Social media integration"
-      ] 
+        "Responsive website build",
+        "Content sections and enquiry forms",
+        "Basic SEO structure",
+        "Deployment support",
+      ],
     },
-    { 
-      title: "Professional", 
-      price: "$600", 
-      desc: "Complete branded website for growing schools.", 
-      featured: true, 
-      gradient: "from-emerald-500 to-teal-600",
+    {
+      title: "Growth Website",
+      price: "$750",
+      description:
+        "A stronger public-facing website with clearer conversion paths and room for content growth.",
+      accent: "gold",
+      featured: true,
       features: [
-        "Everything in Starter", 
-        "Custom professional design", 
-        "News & events section", 
-        "Photo & video galleries",
-        "Parent resources area", 
-        "Google Analytics",
-        "Priority email support",
-        "Monthly backups"
-      ] 
+        "Everything in Starter Site",
+        "Custom page architecture",
+        "News, blog, or updates section",
+        "Analytics and performance setup",
+        "Launch support and QA",
+      ],
     },
-    { 
-      title: "Premium", 
-      price: "$1,000", 
-      desc: "Advanced website with portal features.", 
-      featured: false, 
-      gradient: "from-purple-500 to-violet-600",
+    {
+      title: "Platform Website",
+      price: "$1,200",
+      description:
+        "A larger website with user flows, protected areas, or more tailored functionality.",
+      accent: "teal",
       features: [
-        "Everything in Professional", 
-        "Parent/student login portal", 
-        "Online application forms",
-        "Payment gateway integration", 
-        "Custom functionality",
-        "Staff directory",
-        "Newsletter system",
-        "Dedicated project manager"
-      ] 
+        "Advanced forms and workflows",
+        "User access areas",
+        "Custom integrations",
+        "Structured handover",
+      ],
     },
   ],
-  results: [
-    { 
-      title: "Basic", 
-      price: "$500", 
-      desc: "Secure online results access for students.", 
-      featured: false, 
-      gradient: "from-orange-500 to-red-600",
+  systems: [
+    {
+      title: "Core Portal",
+      price: "$800",
+      description:
+        "A single workflow system or internal portal designed around one operational need.",
+      accent: "green",
       features: [
-        "Secure student login system", 
-        "View & download results", 
-        "PDF report cards", 
-        "Mobile-friendly access",
-        "Password recovery",
-        "Basic admin panel"
-      ] 
+        "Role-based access",
+        "Dashboard interface",
+        "Data capture and export",
+        "Admin controls",
+      ],
     },
-    { 
-      title: "Advanced", 
-      price: "$750", 
-      desc: "Full-featured result management system.", 
-      featured: true, 
-      gradient: "from-pink-500 to-rose-600",
+    {
+      title: "Integrated System",
+      price: "$1,500",
+      description:
+        "A broader internal system that connects multiple workflows and improves reporting.",
+      accent: "gold",
+      featured: true,
       features: [
-        "Everything in Basic", 
-        "Parent SMS/email notifications", 
-        "Bulk results upload (CSV/Excel)", 
-        "Analytics & reports dashboard",
-        "Grade tracking over time",
-        "Custom school branding", 
-        "Multi-term support",
-        "Teacher result entry portal"
-      ] 
+        "Multiple user roles",
+        "Reporting and workflow automation",
+        "Responsive web interface",
+        "Delivery support and training",
+        "Deployment assistance",
+      ],
     },
-    { 
-      title: "Enterprise", 
-      price: "$1,000", 
-      desc: "Complete academic management solution.", 
-      featured: false, 
-      gradient: "from-indigo-500 to-blue-600",
+    {
+      title: "Custom Platform",
+      price: "Custom",
+      description:
+        "A tailored platform for teams that need deeper process design, integrations, and growth planning.",
+      accent: "teal",
       features: [
-        "Everything in Advanced",
-        "API integration with school systems", 
-        "Multi-school/campus support", 
-        "Advanced security & encryption",
-        "Attendance integration",
-        "Custom workflows",
-        "Detailed audit logs",
-        "Priority support & training"
-      ] 
+        "Discovery and technical planning",
+        "Custom modules",
+        "Third-party integrations",
+        "Staged rollout path",
+      ],
     },
   ],
-  chatbots: [
-    { 
-      title: "Essentials", 
-      price: "$150", 
-      desc: "Automated WhatsApp responses 24/7.", 
-      featured: false, 
-      gradient: "from-green-500 to-emerald-600",
+  mobile: [
+    {
+      title: "MVP App",
+      price: "$900",
+      description:
+        "A lean mobile build for testing a concept or launching one focused user journey.",
+      accent: "green",
       features: [
-        "20 predefined responses", 
-        "Admissions information", 
-        "Fee structure & payments", 
-        "School hours & location",
-        "Basic analytics dashboard",
-        "Setup & configuration"
-      ] 
+        "Core screens and flows",
+        "Responsive UI system",
+        "API-ready architecture",
+        "QA and handover",
+      ],
     },
-    { 
-      title: "Smart Bot", 
-      price: "$300", 
-      desc: "Intelligent chatbot with integrations.", 
-      featured: true, 
-      gradient: "from-teal-500 to-cyan-600",
+    {
+      title: "Production App",
+      price: "$1,800",
+      description:
+        "A stronger mobile product with clearer UX, better polish, and launch-readiness.",
+      accent: "gold",
+      featured: true,
       features: [
-        "Everything in Essentials",
-        "Unlimited custom responses", 
-        "Results portal integration", 
-        "Payment reminders & alerts",
-        "Attendance status queries", 
-        "Live agent handover",
-        "Advanced analytics",
-        "Monthly optimization"
-      ] 
+        "Extended feature set",
+        "Authentication and user state",
+        "Admin or backend connection",
+        "Release support",
+        "Post-launch review",
+      ],
     },
-    { 
-      title: "AI Assistant", 
-      price: "$500", 
-      desc: "Advanced AI-powered school assistant.", 
-      featured: false, 
-      gradient: "from-violet-500 to-purple-600",
+    {
+      title: "Connected App Suite",
+      price: "Custom",
+      description:
+        "A mobile product tied to a broader platform, team workflow, or service system.",
+      accent: "teal",
       features: [
-        "Everything in Smart Bot",
-        "Natural language AI understanding", 
-        "Multi-language support (English, Shona, Ndebele)", 
-        "Full system integration",
-        "Custom AI training for your school",
-        "Voice message support",
-        "Chatbot analytics & insights",
-        "Dedicated support manager"
-      ] 
+        "Cross-system planning",
+        "Custom backend work",
+        "Scalable architecture",
+        "Longer delivery roadmap",
+      ],
     },
   ],
-  fullstack: [
-    { 
-      title: "Core Module", 
-      price: "$500", 
-      desc: "Single custom application module.", 
-      featured: false, 
-      gradient: "from-amber-500 to-orange-600",
+  automation: [
+    {
+      title: "Workflow Starter",
+      price: "$250",
+      description:
+        "Automate repetitive messages, basic routing, and simple follow-up tasks.",
+      accent: "green",
       features: [
-        "One core functional module", 
-        "Admin dashboard", 
-        "User role management", 
-        "Mobile responsive",
-        "Data export features",
-        "3 months support included"
-      ] 
+        "WhatsApp or web-based flow",
+        "Structured replies",
+        "Lead capture",
+        "Basic reporting",
+      ],
     },
-    { 
-      title: "Complete System", 
-      price: "$750", 
-      desc: "Full school management solution.", 
-      featured: true, 
-      gradient: "from-red-500 to-pink-600",
+    {
+      title: "Automation Stack",
+      price: "$550",
+      description:
+        "A fuller automation setup connecting enquiries, reminders, and team handoff logic.",
+      accent: "gold",
+      featured: true,
       features: [
-        "Everything in Core Module",
-        "Multiple integrated modules", 
-        "Student & teacher portals", 
-        "Advanced reporting tools",
-        "Attendance management",
-        "Fee management",
-        "SMS/Email notifications", 
-        "6 months support & updates"
-      ] 
+        "Multi-step flows",
+        "Escalation and handoff",
+        "Data collection logic",
+        "Iteration after launch",
+        "Usage review",
+      ],
     },
-    { 
-      title: "Enterprise Suite", 
-      price: "$1,000", 
-      desc: "Comprehensive custom-built platform.", 
-      featured: false, 
-      gradient: "from-blue-500 to-indigo-600",
+    {
+      title: "Integrated Assistant",
+      price: "Custom",
+      description:
+        "Deeper automation tied into internal systems, dashboards, or customer journeys.",
+      accent: "teal",
       features: [
-        "Everything in Complete System",
-        "Fully customized to your needs",
-        "On-premise or cloud deployment", 
-        "API for third-party integrations",
-        "Mobile apps (iOS & Android)",
-        "Advanced security & backups",
-        "Staff training included", 
-        "12 months priority support"
-      ] 
+        "Custom flow design",
+        "System integrations",
+        "Operational reporting",
+        "Support for future expansion",
+      ],
     },
   ],
   support: [
-    { 
-      title: "Basic Care", 
-      price: "$30", 
+    {
+      title: "Essential Care",
+      price: "$40",
       recurring: "/month",
-      desc: "Essential maintenance for your website.", 
-      featured: false, 
-      gradient: "from-slate-500 to-gray-600",
+      description:
+        "Ongoing updates and maintenance for smaller websites or products.",
+      accent: "green",
       features: [
-        "Monthly website backups", 
-        "Security updates & patches", 
-        "Uptime monitoring (99% SLA)", 
-        "Email support (48hr response)",
-        "Performance checks",
-        "SSL certificate management"
-      ] 
+        "Routine maintenance",
+        "Bug fixes",
+        "Basic monitoring",
+        "Priority email support",
+      ],
     },
-    { 
-      title: "Priority Care", 
-      price: "$60", 
+    {
+      title: "Active Partner",
+      price: "$85",
       recurring: "/month",
-      desc: "Comprehensive maintenance & support.", 
-      featured: true, 
-      gradient: "from-emerald-500 to-green-600",
+      description:
+        "A better fit for teams that need regular improvements, fixes, and guidance.",
+      accent: "gold",
+      featured: true,
       features: [
-        "Everything in Basic Care",
-        "Weekly automated backups", 
-        "Priority email & phone support (24hr)", 
-        "Performance optimization",
-        "Content updates (2 hours/month)",
-        "Monthly analytics reports", 
-        "Plugin & CMS updates",
-        "Security scans"
-      ] 
+        "Everything in Essential Care",
+        "Monthly enhancement time",
+        "Performance reviews",
+        "Faster response support",
+        "Improvement recommendations",
+      ],
     },
-    { 
-      title: "Dedicated Partner", 
-      price: "$90", 
+    {
+      title: "Dedicated Support",
+      price: "Custom",
       recurring: "/month",
-      desc: "Your complete tech support team.", 
-      featured: false, 
-      gradient: "from-blue-500 to-cyan-600",
+      description:
+        "For teams that want an ongoing technical partner rather than ad hoc fixes.",
+      accent: "teal",
       features: [
-        "Everything in Priority Care",
-        "Daily backups with redundancy",
-        "Dedicated support manager", 
-        "24/7 emergency monitoring",
-        "Proactive issue prevention",
-        "Content updates (5 hours/month)", 
-        "Custom development hours included",
-        "Quarterly strategy reviews"
-      ] 
+        "Planned iteration cycles",
+        "Priority fixes and monitoring",
+        "Advisory support",
+        "Roadmap collaboration",
+      ],
     },
   ],
 };
 
+const accentStyles: Record<
+  Accent,
+  {
+    badge: string;
+    border: string;
+    icon: string;
+    topBar: string;
+    button: string;
+    price: string;
+    surface: string;
+  }
+> = {
+  green: {
+    badge: "bg-[var(--color-light)] text-[var(--color-green)]",
+    border: "border-[rgba(30,126,52,0.14)]",
+    icon: "bg-[var(--color-light)] text-[var(--color-green)]",
+    topBar: "bg-[var(--color-green)]",
+    button: "bg-[var(--color-green)] text-white hover:bg-[#16642a]",
+    price: "text-[var(--color-green)]",
+    surface: "bg-[var(--color-light)]/70",
+  },
+  gold: {
+    badge: "bg-[rgba(255,215,0,0.16)] text-[var(--color-text)]",
+    border: "border-[rgba(255,215,0,0.42)]",
+    icon: "bg-[rgba(255,215,0,0.16)] text-[var(--color-text)]",
+    topBar: "bg-[var(--color-gold)]",
+    button: "bg-[var(--color-gold)] text-[var(--color-text)] hover:bg-[#e7c400]",
+    price: "text-[var(--color-text)]",
+    surface: "bg-[rgba(255,215,0,0.12)]",
+  },
+  teal: {
+    badge: "bg-[rgba(25,167,186,0.14)] text-[#0f6670]",
+    border: "border-[rgba(25,167,186,0.26)]",
+    icon: "bg-[rgba(25,167,186,0.14)] text-[#0f6670]",
+    topBar: "bg-[#19A7BA]",
+    button: "bg-[#19A7BA] text-white hover:bg-[#138697]",
+    price: "text-[#0f6670]",
+    surface: "bg-[rgba(25,167,186,0.08)]",
+  },
+};
+
 export default function PricingSection() {
-  const [activeTab, setActiveTab] = useState("websites");
+  const [activeTab, setActiveTab] = useState<PricingTabId>("websites");
   const currentPricing = pricingData[activeTab];
+  const activePricingTab =
+    pricingTabs.find((tab) => tab.id === activeTab) ?? pricingTabs[0];
 
   return (
-    <section className="py-20 md:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-[var(--color-green)]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--color-gold)]/5 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        {/* Heading */}
-        <div className="text-center mb-12 md:mb-16">
+    <section id="pricing" className="py-20 sm:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="grid gap-6 lg:grid-cols-[1fr_340px] lg:items-end">
           <Animate>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text)] tracking-tight">
-              Clear & Honest Pricing
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-green)]">
+              Pricing Guide
+            </span>
+            <h2 className="mt-3 max-w-3xl text-3xl font-bold text-[var(--color-text)] sm:text-4xl lg:text-5xl">
+              Better pricing structure, less visual clutter
             </h2>
-          </Animate>
-          <Animate delay={100}>
-            <p className="mt-6 text-xl text-[var(--color-muted)] max-w-3xl mx-auto">
-              One-time project fees (except support plans) — no hidden costs, no surprises. Built for Zimbabwean school budgets.
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
+              Guide prices for the most common project shapes. Final cost still
+              depends on scope, integrations, rollout complexity, and support
+              requirements.
             </p>
           </Animate>
-        </div>
-    
-        {/* Enhanced Tabs with Icons */}
-        <Animate delay={200}>
-          <div className="flex flex-wrap justify-center gap-4 mb-16 md:mb-20">
-            {pricingTabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`
-                  relative flex items-center gap-3 px-6 py-4 rounded-2xl font-semibold text-base lg:text-lg transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1
-                  ${activeTab === tab.id
-                    ? "bg-gradient-to-r from-[var(--color-green)] to-[var(--color-green)]/80 text-white scale-105"
-                    : "bg-white text-[var(--color-text)] hover:bg-gray-50 border-2 border-gray-200"
-                  }
-                `}
-              >
-                {/* Icon */}
-                <FontAwesomeIcon 
-                  icon={tab.icon} 
-                  className={`text-xl transition-transform ${activeTab === tab.id ? "text-white scale-110" : "text-[var(--color-green)]"}`}
-                />
-                <span className="hidden sm:inline">{tab.label}</span>
-    
-                {/* Active indicator glow */}
-                {activeTab === tab.id && (
-                  <span className="absolute inset-0 rounded-2xl ring-4 ring-[var(--color-green)]/30 animate-pulse" />
-                )}
-              </button>
-            ))}
-          </div>
-        </Animate>
-    
-        {/* Animated Pricing Cards Container */}
-        <div className="relative">
-          <Animate key={activeTab} delay={0}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-              {currentPricing.map((plan, i) => (
-                <Animate key={plan.title} delay={(i + 1) * 100}>
-                  <div className="group relative h-full">
-                    {/* Animated gradient glow effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${plan.gradient} rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 ${plan.featured ? 'scale-105' : ''}`}></div>
-                    
-                    {/* Main card */}
-                    <div
-                      className={`relative bg-white rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col h-full transform group-hover:-translate-y-2 ${
-                        plan.featured
-                          ? "border-4 border-[var(--color-gold)] ring-4 ring-[var(--color-gold)]/20 scale-105"
-                          : "border-2 border-gray-200"
-                      }`}
-                    >
-                      {/* Featured badge */}
-                      {plan.featured && (
-                        <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-gradient-to-r from-[var(--color-gold)] to-yellow-500 text-[var(--color-text)] px-6 py-2 rounded-full text-sm font-bold shadow-xl">
-                          <FontAwesomeIcon icon={faStar} className="text-white" />
-                          Most Popular
-                        </div>
-                      )}
-    
-                      {/* Gradient corner accent */}
-                      <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${plan.gradient} opacity-0 group-hover:opacity-10 rounded-bl-full transition-all duration-500`}></div>
-    
-                      {/* Title */}
-                      <h3 className="text-2xl lg:text-3xl font-bold text-[var(--color-text)] mb-4">{plan.title}</h3>
-                      
-                      {/* Price */}
-                      <div className="mb-6">
-                        <span className={`text-5xl lg:text-6xl font-extrabold bg-gradient-to-r ${plan.gradient} bg-clip-text text-transparent`}>
-                          {plan.price}
-                        </span>
-                        {plan.recurring && (
-                          <span className="text-lg text-[var(--color-muted)]">{plan.recurring}</span>
-                        )}
-                        {!plan.recurring && activeTab !== "support" && (
-                          <span className="block text-sm text-[var(--color-muted)] mt-2">One-time project fee</span>
-                        )}
-                      </div>
-    
-                      {/* Description */}
-                      <p className="text-[var(--color-muted)] text-base lg:text-lg mb-8 min-h-[60px]">{plan.desc}</p>
-    
-                      {/* Divider with gradient */}
-                      <div className={`h-1 w-full bg-gradient-to-r ${plan.gradient} rounded-full mb-8 opacity-20`}></div>
-    
-                      {/* Features list */}
-                      <ul className="space-y-4 mb-10 flex-grow">
-                        {plan.features.map((feature: string, idx: number) => (
-                          <li key={idx} className="flex items-start group/item">
-                            <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${plan.gradient} flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 shadow-md`}>
-                              <FontAwesomeIcon icon={faCheckCircle} className="text-white text-sm" />
-                            </div>
-                            <span className="text-[var(--color-text)] text-base leading-relaxed">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-    
-                      {/* CTA Button */}
-                      <Link
-                        href="/contact"
-                        className={`mt-auto py-4 px-8 text-center rounded-2xl font-bold text-lg transition-all shadow-lg hover:shadow-2xl transform hover:scale-105 bg-gradient-to-r ${plan.gradient} text-white`}
-                      >
-                        {activeTab === "support" ? "Subscribe Now" : "Start Project"}
-                      </Link>
-    
-                      {/* Bottom glow effect */}
-                      <div className={`absolute -bottom-16 -right-16 w-40 h-40 bg-gradient-to-br ${plan.gradient} rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700`}></div>
-                    </div>
-                  </div>
-                </Animate>
-              ))}
+
+          <Animate delay={80}>
+            <div className="rounded-[28px] border border-[rgba(30,126,52,0.14)] px-6 py-5">
+              <div className="flex items-center gap-3 text-[var(--color-green)]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-light)]">
+                  <FontAwesomeIcon icon={activePricingTab.icon} />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-green)]">
+                    Current Range
+                  </p>
+                  <p className="text-lg font-semibold text-[var(--color-text)]">
+                    {activePricingTab.label}
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm leading-7 text-[var(--color-muted)]">
+                Use the tabs below to compare common scopes. If none of them
+                fit exactly, we can phase the work.
+              </p>
             </div>
           </Animate>
         </div>
 
-        {/* Additional info */}
-        <Animate delay={400}>
-          <div className="mt-16 text-center">
-            <p className="text-[var(--color-muted)] text-lg mb-6">
-              All prices are in USD. Custom requirements? We'll work with your budget.
+        <Animate delay={100}>
+          <div className="mt-10 overflow-x-auto pb-2">
+            <div className="flex min-w-max gap-3">
+              {pricingTabs.map((tab) => {
+                const active = tab.id === activeTab;
+
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`inline-flex items-center gap-3 rounded-full border px-5 py-3 text-sm font-semibold whitespace-nowrap transition duration-300 sm:text-base ${
+                      active
+                        ? "border-[var(--color-green)] bg-[var(--color-green)] text-white shadow-[0_16px_36px_rgba(30,126,52,0.2)]"
+                        : "border-[rgba(30,126,52,0.14)] bg-white text-[var(--color-text)] hover:border-[var(--color-gold)]/40 hover:text-[var(--color-green)]"
+                    }`}
+                  >
+                    <FontAwesomeIcon
+                      icon={tab.icon}
+                      className={active ? "text-white" : "text-[var(--color-green)]"}
+                    />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </Animate>
+
+        <div className="mt-10 grid gap-6 xl:grid-cols-3">
+          {currentPricing.map((plan, index) => {
+            const accent = accentStyles[plan.accent];
+
+            return (
+              <Animate key={`${activeTab}-${plan.title}`} delay={index * 90}>
+                <div
+                  className={`relative flex h-full flex-col overflow-hidden rounded-[30px] border bg-white shadow-[0_16px_40px_rgba(15,58,54,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_56px_rgba(15,58,54,0.09)] ${accent.border}`}
+                >
+                  <div className={`h-1.5 w-full ${accent.topBar}`} />
+
+                  <div className="p-6 sm:p-7">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="text-2xl font-semibold text-[var(--color-text)]">
+                          {plan.title}
+                        </h3>
+                        <p className="mt-3 text-base leading-7 text-[var(--color-muted)]">
+                          {plan.description}
+                        </p>
+                      </div>
+                      <span
+                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${accent.icon}`}
+                      >
+                        <FontAwesomeIcon icon={activePricingTab.icon} />
+                      </span>
+                    </div>
+
+                    <div className={`mt-7 rounded-[24px] p-5 ${accent.surface}`}>
+                      {plan.featured ? (
+                        <span
+                          className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] ${accent.badge}`}
+                        >
+                          Recommended
+                        </span>
+                      ) : null}
+
+                      <div className="mt-4 flex items-end gap-2">
+                        <span className={`text-5xl font-bold ${accent.price}`}>
+                          {plan.price}
+                        </span>
+                        {plan.recurring ? (
+                          <span className="pb-1 text-sm font-medium text-[var(--color-muted)]">
+                            {plan.recurring}
+                          </span>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    <ul className="mt-8 space-y-4">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3">
+                          <span className="mt-1 text-[var(--color-green)]">
+                            <FontAwesomeIcon
+                              icon={faCheckCircle}
+                              className="text-sm"
+                            />
+                          </span>
+                          <span className="text-sm leading-7 text-[var(--color-text)] sm:text-base">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      href="/quote"
+                      className={`mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full px-6 py-3.5 text-sm font-semibold transition duration-300 hover:-translate-y-0.5 sm:text-base ${accent.button}`}
+                    >
+                      Request this scope
+                      <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+                    </Link>
+                  </div>
+                </div>
+              </Animate>
+            );
+          })}
+        </div>
+
+        <Animate delay={300}>
+          <div className="mt-10 flex flex-col gap-4 rounded-[28px] border border-[rgba(30,126,52,0.14)] px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-7">
+            <p className="max-w-3xl text-sm leading-7 text-[var(--color-muted)] sm:text-base">
+              Need a tighter budget or a more custom scope? We can phase the
+              work so the first release stays practical and the product can
+              expand later.
             </p>
-            <Link 
+            <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-[var(--color-green)] font-semibold text-lg hover:gap-3 transition-all"
+              className="inline-flex items-center gap-3 text-sm font-semibold text-[var(--color-green)] transition duration-300 hover:gap-4 sm:text-base"
             >
-              Need a custom quote? Contact us
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              Talk through a custom quote
+              <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
             </Link>
           </div>
         </Animate>
