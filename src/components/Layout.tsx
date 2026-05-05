@@ -66,7 +66,7 @@ export default function Layout({ children }: LayoutProps) {
           >
             <Link href="/" className="group flex min-w-0 items-center gap-3">
               <Image
-                src="/logo.png"
+                src="/logo-ing.png"
                 alt="Ingenio Systems logo"
                 width={56}
                 height={56}
@@ -105,7 +105,7 @@ export default function Layout({ children }: LayoutProps) {
               <div className="mb-6 flex items-center gap-4">
                 <Link href="/" className="group">
                   <Image
-                    src="/logo.png"
+                    src="/logo-ing.png"
                     alt="Ingenio Systems logo"
                     width={48}
                     height={48}
