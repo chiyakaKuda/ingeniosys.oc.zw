@@ -185,7 +185,7 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href="mailto:sales@ingeniosys.co.zw"
+                  href="mailto:sale@ingeniosys.co.zw"
                   className="rounded-[24px] border border-white/10 bg-black/10 px-5 py-4 transition duration-300 hover:bg-white/10"
                 >
                   <div className="flex items-start gap-4">
@@ -197,7 +197,7 @@ export default function ContactPage() {
                         Email
                       </p>
                       <p className="mt-1 break-all text-lg font-semibold text-white">
-                        sales@ingeniosys.co.zw
+                        sale@ingeniosys.co.zw
                       </p>
                     </div>
                   </div>
@@ -371,11 +371,11 @@ export default function ContactPage() {
                     +263 77 280 0899
                   </a>
                   <a
-                    href="mailto:sales@ingeniosys.co.zw"
+                    href="mailto:sale@ingeniosys.co.zw"
                     className="inline-flex items-center gap-3 text-sm font-semibold text-[var(--color-text)] transition duration-300 hover:text-[var(--color-green)]"
                   >
                     <FontAwesomeIcon icon={faEnvelope} className="text-[var(--color-green)]" />
-                    sales@ingeniosys.co.zw
+                    sale@ingeniosys.co.zw
                   </a>
                   <a
                     href="https://wa.me/263772800899"

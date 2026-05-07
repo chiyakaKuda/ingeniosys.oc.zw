@@ -13,7 +13,6 @@ import {
 import {
   faBriefcase,
   faCubes,
-  faEnvelope,
   faHouse,
   faInfoCircle,
   faPaperPlane,
@@ -26,8 +25,7 @@ const navigation = [
   { href: "#clients", label: "Clients", icon: faBriefcase },
   { href: "#collaborations", label: "Partners", icon: faInfoCircle },
   { href: "#about", label: "About", icon: faInfoCircle },
-  { href: "/contact", label: "Contact", icon: faEnvelope },
-  { href: "/quote", label: "Get a Quote", icon: faPaperPlane, emphasized: true },
+  { href: "#contact", label: "Start", icon: faPaperPlane, emphasized: true },
 ];
 
 type LayoutProps = {
@@ -77,6 +75,11 @@ export default function Layout({ children }: LayoutProps) {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#")) {
       e.preventDefault();
+      if (!isHome) {
+        window.location.href = `/${href}`;
+        return;
+      }
+
       const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({ behavior: "smooth" });
@@ -179,7 +182,7 @@ export default function Layout({ children }: LayoutProps) {
                 </h5>
                 <ul className="space-y-3">
                   {navigation.map((item) => (
-                    <li key={item.href}>
+                    <li key={`${item.href}-${item.label}`}>
                       <a
                         href={item.href}
                         onClick={(e) => handleNavClick(e, item.href)}

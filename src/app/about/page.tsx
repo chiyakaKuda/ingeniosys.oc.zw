@@ -350,10 +350,10 @@ export default function AboutPage() {
             <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
               Sales:{" "}
               <a
-                href="mailto:sales@ingeniosys.co.zw"
+                href="mailto:sale@ingeniosys.co.zw"
                 className="underline decoration-[var(--color-gold)] decoration-2 underline-offset-4"
               >
-                sales@ingeniosys.co.zw
+                sale@ingeniosys.co.zw
               </a>{" "}
               | WhatsApp:{" "}
               <a

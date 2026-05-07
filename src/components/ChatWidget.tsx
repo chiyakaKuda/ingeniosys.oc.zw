@@ -35,7 +35,7 @@ const companyDB = {
   services:
     "We build AI ERP systems, Pharma-Bot, Dental Clinic Bot, school management systems, websites, automation tools, and INGENIO GREEN manufacturing innovation.",
   contact:
-    "Hotline: +263 77 280 0899 | Email: sales@ingeniosys.co.zw | WhatsApp: +263 77 280 0899",
+    "Hotline: +263 77 280 0899 | Email: sale@ingeniosys.co.zw | WhatsApp: +263 77 280 0899",
   pricing:
     "We provide guide pricing for websites, systems, automation, and support. AI, healthcare, school platform, and manufacturing scopes are quoted based on requirements.",
   portfolio:
@@ -339,7 +339,7 @@ export default function ChatWidget() {
                   </p>
                   <p>
                     <span className="font-semibold text-white">Email:</span>{" "}
-                    sales@ingeniosys.co.zw
+                    sale@ingeniosys.co.zw
                   </p>
                 </div>
 
@@ -545,7 +545,7 @@ export default function ChatWidget() {
                     WhatsApp
                   </a>
                   <a
-                    href="mailto:sales@ingeniosys.co.zw"
+                    href="mailto:sale@ingeniosys.co.zw"
                     className="inline-flex items-center gap-2 rounded-full bg-[var(--color-light)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] transition hover:bg-white"
                   >
                     <FontAwesomeIcon icon={faEnvelope} className="text-[var(--color-green)]" />

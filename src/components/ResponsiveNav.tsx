@@ -31,12 +31,12 @@ export default function ResponsiveNav({
   const linkClasses = (emphasized?: boolean) =>
     emphasized
       ? "inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-5 py-2.5 text-sm font-semibold text-[var(--color-text)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(255,215,0,0.28)]"
-      : "text-sm font-semibold transition-colors duration-300 hover:text-[var(--color-gold)]";
+      : "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-300 hover:text-[var(--color-gold)]";
 
   const mobileLinkClasses = (emphasized?: boolean) =>
     emphasized
-      ? "block w-full rounded-full bg-[var(--color-gold)] px-5 py-3 text-center text-sm font-semibold text-[var(--color-text)]"
-      : "block w-full rounded-xl px-4 py-3 text-sm font-semibold text-[var(--color-text)] hover:bg-[var(--color-light)] transition-colors";
+      ? "flex w-full items-center gap-3 rounded-full bg-[var(--color-gold)] px-5 py-3 text-sm font-semibold text-[var(--color-text)]"
+      : "flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-light)]";
 
   const isActive = (href: string) => {
     if (!activeSection) return false;
@@ -49,7 +49,7 @@ export default function ResponsiveNav({
       <nav className="hidden items-center gap-1 lg:flex">
         {items.map((item) => (
           <a
-            key={item.href}
+            key={`${item.href}-${item.label}`}
             href={item.href}
             onClick={(e) => onNavClick?.(e, item.href)}
             className={`px-4 py-2 ${
@@ -60,7 +60,8 @@ export default function ResponsiveNav({
                 : "text-[var(--color-muted)]"
             } ${linkClasses(item.emphasized)}`}
           >
-            {item.label}
+            <FontAwesomeIcon icon={item.icon} className="text-sm" />
+            <span>{item.label}</span>
           </a>
         ))}
       </nav>
@@ -88,7 +89,7 @@ export default function ResponsiveNav({
             <nav className="flex flex-col gap-2">
               {items.map((item) => (
                 <a
-                  key={item.href}
+                  key={`${item.href}-${item.label}`}
                   href={item.href}
                   onClick={(e) => {
                     onNavClick?.(e, item.href);
@@ -96,7 +97,8 @@ export default function ResponsiveNav({
                   }}
                   className={mobileLinkClasses(item.emphasized)}
                 >
-                  {item.label}
+                  <FontAwesomeIcon icon={item.icon} className="text-base" />
+                  <span>{item.label}</span>
                 </a>
               ))}
             </nav>

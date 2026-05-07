@@ -200,65 +200,61 @@ export default function Home() {
           HERO
       ═══════════════════════════════════════════════════ */}
       <section
-        id="hero"
-        className="relative mb-16 overflow-hidden full-bleed -mx-4 sm:-mx-6 lg:-mx-10"
+  id="hero"
+  className="relative mb-16 overflow-hidden full-bleed -mx-4 sm:-mx-6 lg:-mx-10"
+>
+  <div className="absolute inset-0">
+    <Image
+      src="/team/tech.jpg"
+      alt="Ingenio Systems — innovative technology"
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover object-center"
+    />
+  </div>
+  <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(9,21,35,0.90)_0%,rgba(15,58,54,0.82)_46%,rgba(25,167,186,0.44)_100%)]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.06),transparent_35%)]" />
+
+  <div className="relative mx-auto flex min-h-[100svh] w-[95vw] max-w-6xl items-center px-4 pb-20 pt-32 sm:px-6 lg:px-10 lg:pb-24 lg:pt-40">
+    <div className="max-w-3xl text-white">
+      <Animate className="flex flex-col gap-5">
+        <span className="inline-flex w-fit items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-gold)]">
+          Powered by INGENIO GREEN
+        </span>
+        <h1 className="text-4xl font-black leading-[1.02] sm:text-5xl lg:text-6xl">
+          Innovative tech,<br />
+          <span className="text-[var(--color-gold)]">practically</span>{" "}
+          delivered.
+        </h1>
+        <p className="max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
+          AI systems &bull; Healthcare bots &bull; School platforms{" "}
+          &bull; Digital products &bull; Green manufacturing
+        </p>
+      </Animate>
+
+      <Animate
+        className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+        delay={120}
       >
-        <div className="absolute inset-0">
-          <Image
-            src="/team/tech.jpg"
-            alt="Ingenio Systems — innovative technology"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        </div>
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(9,21,35,0.88)_0%,rgba(15,58,54,0.80)_46%,rgba(25,167,186,0.48)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,215,0,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.06),transparent_35%)]" />
-
-        <div className="relative mx-auto flex min-h-[100svh] w-[95vw] max-w-6xl items-center px-4 pb-20 pt-32 sm:px-6 lg:px-10 lg:pb-24 lg:pt-40">
-          <div className="max-w-3xl text-white">
-            <Animate className="flex flex-col gap-6">
-              <span className="inline-flex w-fit items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-gold)]">
-                Innovative Tech Company
-              </span>
-              <h1 className="text-4xl font-black leading-[1.04] sm:text-5xl lg:text-6xl">
-                We build AI systems, healthcare bots, school platforms, and
-                green manufacturing — all under one roof.
-              </h1>
-              <p className="max-w-2xl text-lg leading-relaxed text-white/82 sm:text-xl">
-                Ingenio Systems, powered by <strong>INGENIO GREEN</strong>,
-                delivers practical innovation across healthcare, education,
-                digital products, and sustainable packaging.
-              </p>
-            </Animate>
-
-            <Animate className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center" delay={120}>
-              <Link
-                href="/quote"
-                className="inline-flex items-center justify-center gap-3 rounded-full bg-[var(--color-gold)] px-7 py-4 text-base font-semibold text-[var(--color-text)] shadow-[0_18px_40px_rgba(255,215,0,0.2)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_rgba(255,215,0,0.25)]"
-              >
-                Start a Project
-                <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
-              </Link>
-              <a
-                href="#work"
-                className="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-base font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/14"
-              >
-                Explore Work
-                <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
-              </a>
-            </Animate>
-
-            <Animate className="mt-6" delay={180}>
-              <p className="text-sm font-medium text-white/70">
-                From Pharma-Bot and Dental Clinic Bot to biodegradable plastic
-                pellets — we build where technology moves real work forward.
-              </p>
-            </Animate>
-          </div>
-        </div>
-      </section>
+        <Link
+          href="/quote"
+          className="inline-flex items-center justify-center gap-3 rounded-full bg-[var(--color-gold)] px-7 py-4 text-base font-semibold text-[var(--color-text)] shadow-[0_18px_40px_rgba(255,215,0,0.2)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_rgba(255,215,0,0.25)]"
+        >
+          Start a Project
+          <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
+        </Link>
+        <a
+          href="#work"
+          className="inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-base font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/14"
+        >
+          Explore Work
+          <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
+        </a>
+      </Animate>
+    </div>
+  </div>
+</section>
 
       {/* ═══════════════════════════════════════════════════
           INNOVATION PILLARS
@@ -305,7 +301,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           CLIENT LOGOS
       ═══════════════════════════════════════════════════ */}
-      <section className="mb-24 scroll-mt-28">
+      <section id="clients" className="mb-24 scroll-mt-28">
         <Animate>
           <div className="overflow-hidden rounded-[32px] border border-[rgba(30,126,52,0.10)] bg-[linear-gradient(135deg,var(--color-light)_0%,#f8fcfa_60%,var(--color-green-light)_100%)] px-6 py-10 sm:px-10">
             <div className="mx-auto max-w-3xl text-center">
@@ -453,99 +449,60 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           HOW WE WORK
       ═══════════════════════════════════════════════════ */}
-      <section className="mb-24 scroll-mt-28">
-        <Animate className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-green)]">
-            How We Work
-          </span>
-          <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
-            From discovery to delivery and beyond
-          </h2>
-        </Animate>
+     <section className="mb-24 scroll-mt-28">
+  <Animate className="mx-auto max-w-3xl text-center">
+    <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-green)]">
+      How We Work
+    </span>
+    <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
+      Discovery → Delivery → Growth
+    </h2>
+    <p className="mt-4 text-lg text-[var(--color-muted)]">
+      No endless proposals. Just a clear, repeatable process that turns ideas
+      into working products.
+    </p>
+  </Animate>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <Animate key={step.step} delay={index * 80}>
-              <div className="h-full rounded-[30px] bg-[#0F3A36] px-6 py-8 text-white shadow-[0_20px_50px_rgba(15,58,54,0.12)]">
-                <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-gold)]">
-                  {step.step}
-                </span>
-                <h3 className="mt-6 text-2xl font-semibold leading-tight">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-white/72">
-                  {step.description}
-                </p>
-              </div>
-            </Animate>
-          ))}
-        </div>
-      </section>
+  <div className="mt-12 flex flex-col gap-4 lg:gap-6">
+    {processSteps.map((step, index) => (
+        <Animate key={step.step} delay={index * 80}>
+          <div
+            className={`group flex flex-col gap-6 rounded-[28px] border border-[rgba(30,126,52,0.10)] bg-white p-6 shadow-[0_12px_34px_rgba(15,58,54,0.04)] transition duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)]/30 hover:shadow-[0_20px_44px_rgba(15,58,54,0.08)] sm:flex-row sm:items-center sm:gap-10 sm:p-8`}
+          >
+            {/* Number + Icon */}
+            <div className="flex items-center gap-4 sm:w-48 sm:shrink-0 sm:flex-col sm:items-start sm:gap-3">
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0F3A36] text-xl font-bold text-[var(--color-gold)] sm:h-16 sm:w-16 sm:text-2xl">
+                {index + 1}
+              </span>
+              <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-green)]">
+                {["Discover", "Build", "Support"][index]}
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-[var(--color-text)] sm:text-2xl">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm leading-7 text-[var(--color-muted)] sm:text-base">
+                {step.description}
+              </p>
+            </div>
+
+            {/* Arrow indicator */}
+            <span className="hidden shrink-0 text-2xl text-[var(--color-muted)]/25 transition-colors group-hover:text-[var(--color-gold)]/50 sm:block">
+              <FontAwesomeIcon icon={faArrowRight} />
+            </span>
+          </div>
+        </Animate>
+    ))}
+  </div>
+</section>
 
       {/* ═══════════════════════════════════════════════════
           ABOUT
       ═══════════════════════════════════════════════════ */}
-      <section id="about" className="mb-24 scroll-mt-28 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-stretch">
-        <Animate className="rounded-[32px] bg-[#0F3A36] p-8 text-white shadow-[0_24px_60px_rgba(15,58,54,0.14)] sm:p-10">
-          <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
-            About Ingenio Systems
-          </span>
-          <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-            Roots in education. Now building across every sector.
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-            We started by solving real problems for schools in Zimbabwe. That
-            practical foundation shaped how we approach everything — healthcare
-            bots, AI systems, digital products, and sustainable manufacturing
-            under INGENIO GREEN. We are not tied to one industry. We build where
-            innovation creates impact, and we deliver work that actually
-            functions in the environments it is meant for.
-          </p>
-
-          <div className="mt-8 grid gap-4">
-            {[
-              "Software engineering + AI systems + green innovation under one roof",
-              "Practical delivery — no vapourware, no slide-deck theatre",
-              "Powered by INGENIO GREEN for sustainable technology",
-            ].map((principle) => (
-              <div
-                key={principle}
-                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/6 px-4 py-4"
-              >
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[var(--color-gold)]" />
-                <p className="text-sm leading-7 text-white/80">{principle}</p>
-              </div>
-            ))}
-          </div>
-        </Animate>
-
-        <Animate delay={120}>
-          <div className="relative min-h-[420px] overflow-hidden rounded-[32px] border border-[rgba(30,126,52,0.10)] shadow-[0_16px_40px_rgba(15,58,54,0.06)]">
-            <Image
-              src="/workshop-2.jpeg"
-              alt="Ingenio Systems collaborating with a client team"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0F3A36]/88 via-[#0F3A36]/28 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-              <div className="max-w-md rounded-[28px] border border-white/10 bg-white/10 p-5 text-white backdrop-blur-md">
-                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
-                  Zimbabwe-born, globally-minded
-                </span>
-                <h3 className="mt-3 text-2xl font-semibold leading-tight">
-                  Practical tech, delivered where it counts.
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-white/80">
-                  Workshops, planning, feedback loops, and team training ensure
-                  every solution fits the real environment it is built for.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Animate>
-      </section>
+      
 
       {/* ═══════════════════════════════════════════════════
           CTA / CONTACT
@@ -579,11 +536,11 @@ export default function Home() {
                     +263 77 280 0899
                   </a>
                   <a
-                    href="mailto:hello@ingeniosystems.co.zw"
+                    href="mailto:sale@ingeniosys.co.zw"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 transition-colors hover:text-[var(--color-gold)]"
                   >
                     <FontAwesomeIcon icon={faEnvelope} className="text-lg" />
-                    hello@ingeniosystems.co.zw
+                    sale@ingeniosys.co.zw
                   </a>
                 </div>
               </div>
@@ -597,7 +554,7 @@ export default function Home() {
                   <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
                 </Link>
                 <a
-                  href="mailto:hello@ingeniosystems.co.zw"
+                  href="mailto:sale@ingeniosys.co.zw"
                   className="inline-flex items-center justify-center gap-3 rounded-full border border-white/15 bg-white/8 px-7 py-4 text-base font-semibold text-white transition duration-300 hover:bg-white/12"
                 >
                   Email Us
