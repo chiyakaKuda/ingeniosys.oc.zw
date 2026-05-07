@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -13,8 +14,7 @@
 @theme inline {
   --color-background: var(--color-white);
   --color-foreground: var(--color-text);
-  --font-sans: var(--font-raleway), system-ui, -apple-system, "Segoe UI",
-    sans-serif;
+  --font-sans: "Raleway", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 body {

@@ -30,7 +30,7 @@ const capabilities = [
 
 const collaborations = [
   {
-    title: "UNICEF-KOICA-BOOST Fellowship",
+    title: "UNICEF and KOICA",
     summary:
       "Collaboration experience connected to innovation, entrepreneurship, and practical technology development.",
   },
@@ -298,8 +298,8 @@ export default function PortfolioPage() {
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
               Beyond client builds, Ingenio Systems has worked around
-              innovation and impact spaces connected to UNICEF-KOICA-BOOST
-              Fellowship and Amnesty International.
+              innovation and impact spaces connected to UNICEF, KOICA, and
+              Amnesty International.
             </p>
           </Animate>
 

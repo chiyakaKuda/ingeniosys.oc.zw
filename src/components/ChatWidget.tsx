@@ -39,7 +39,7 @@ const companyDB = {
   pricing:
     "We provide guide pricing for websites, systems, automation, and support. AI, healthcare, school platform, and manufacturing scopes are quoted based on requirements.",
   portfolio:
-    "Our portfolio includes Fleet-Eye Tracking Systems, Invoicee, kchiyaka.com, school website and portal work, and collaborations with UNICEF-KOICA-BOOST Fellowship and Amnesty International.",
+    "Our portfolio includes Fleet-Eye Tracking Systems, Invoicee, kchiyaka.com, school website and portal work, and collaborations with UNICEF, KOICA, and Amnesty International.",
   support:
     "For direct support, use WhatsApp for the fastest response or send a message here and we will route it to the right person.",
 };

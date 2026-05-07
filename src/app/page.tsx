@@ -20,6 +20,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import AboutSection from "@/components/AboutSection";
 
 // ─── DATA ───────────────────────────────────────────────
 
@@ -154,20 +155,52 @@ const selectedWork = [
 ];
 
 const clientLogos = [
-  { name: "Pharma-Bot", src: "/clients/pharma-bot.png" },
-  { name: "Dental Clinic Bot", src: "/clients/dental-bot.png" },
-  { name: "Ixar Academy", src: "/clients/ixar.png" },
-  { name: "Guinea Fowl High", src: "/clients/guinea-fowl.png" },
-  { name: "Fleet-Eye", src: "/clients/fleet-eye.png" },
-  { name: "Invoicee", src: "/clients/invoicee.png" },
-  { name: "INGENIO GREEN", src: "/clients/ingenio-green.png" },
+  {
+    name: "Pharma-Bot",
+    eyebrow: "Healthcare AI",
+    mark: "Pharma-Bot",
+    accent: "text-emerald-600",
+    src: null,
+    icon: faFlask,
+  },
+  {
+    name: "Dental Clinic Bot",
+    eyebrow: "Healthcare AI",
+    mark: "Dental Clinic Bot",
+    accent: "text-cyan-600",
+    src: null,
+    icon: faTooth,
+  },
+  {
+    name: "St Patrick High",
+    eyebrow: "School Platform",
+    mark: null,
+    accent: "text-yellow-600",
+    src: "/st patricks.png",
+    icon: null,
+  },
+  {
+    name: "Guinea Fowl High",
+    eyebrow: "School Website and Portal",
+    mark: null,
+    accent: "text-red-700",
+    src: "/guinea.png",
+    icon: null,
+  },
+  {
+    name: "Ixar Academy",
+    eyebrow: "School Platform",
+    mark: null,
+    accent: "text-blue-600",
+    src: "/ixar.png",
+    icon: null,
+  },
 ];
 
 const collaborations = [
-  { name: "UNICEF", src: "/collaborations/unicef.png" },
-  { name: "KOICA", src: "/collaborations/koica.png" },
-  { name: "BOOST Fellowship", src: "/collaborations/boost.png" },
-  { name: "Amnesty International", src: "/collaborations/amnesty.png" },
+  { name: "UNICEF", src: "/unicef.png" },
+  { name: "KOICA", src: "/koica.png" },
+  { name: "Amnesty International", src: "/amnesty.jpg" },
 ];
 
 const processSteps = [
@@ -312,21 +345,43 @@ export default function Home() {
                 Products and platforms already in the wild
               </h2>
             </div>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {clientLogos.map((logo) => (
                 <div
                   key={logo.name}
-                  className="group flex flex-col items-center gap-2"
+                  className="group flex min-h-[160px] flex-col justify-between rounded-[24px] border border-[rgba(30,126,52,0.10)] bg-white/88 px-5 py-5 text-left shadow-[0_12px_30px_rgba(15,58,54,0.04)] transition duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)]/35 hover:bg-white"
                 >
-                  <div className="relative h-14 w-28 sm:h-16 sm:w-36">
-                    <Image
-                      src={logo.src}
-                      alt={`${logo.name} logo`}
-                      fill
-                      className="object-contain opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-                    />
+                  <div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                      {logo.eyebrow}
+                    </p>
+                    {logo.src ? (
+                      <div className="relative mt-4 h-16 w-full">
+                        <Image
+                          src={logo.src}
+                          alt={`${logo.name} logo`}
+                          fill
+                          className="object-contain object-left transition duration-300 group-hover:scale-[1.02]"
+                        />
+                      </div>
+                    ) : (
+                      <div className="mt-4 flex items-center gap-3">
+                        {logo.icon ? (
+                          <span
+                            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-light)] text-xl ${logo.accent}`}
+                          >
+                            <FontAwesomeIcon icon={logo.icon} />
+                          </span>
+                        ) : null}
+                        <p
+                          className={`text-2xl font-black leading-tight ${logo.accent}`}
+                        >
+                          {logo.mark}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-text)]">
+                  <span className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-text)]">
                     {logo.name}
                   </span>
                 </div>
@@ -501,9 +556,13 @@ export default function Home() {
 
       {/* ═══════════════════════════════════════════════════
           ABOUT
+          
       ═══════════════════════════════════════════════════ */}
       
-
+{/* ═══════════════════════════════════════════════════
+    ABOUT
+═══════════════════════════════════════════════════ */}
+<AboutSection/>
       {/* ═══════════════════════════════════════════════════
           CTA / CONTACT
       ═══════════════════════════════════════════════════ */}
