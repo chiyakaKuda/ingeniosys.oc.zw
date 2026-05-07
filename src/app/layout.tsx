@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 
-const quicksand = Quicksand({
+const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-quicksand",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-raleway",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Ingenio Systems",
   description:
-    "Bridging the tech gap through innovative digital solutions and education.",
+    "Ingenio Systems is an innovative technology company powered by INGENIO GREEN, building AI-driven ERP systems, healthcare bots, school platforms, websites, and green manufacturing solutions.",
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${quicksand.variable} font-sans antialiased`}>
+      <body className={`${raleway.className} ${raleway.variable} antialiased`}>
         {children}
       </body>
     </html>

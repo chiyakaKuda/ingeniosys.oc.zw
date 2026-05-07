@@ -108,12 +108,14 @@ export default function ContactPage() {
                 Contact
               </span>
               <h1 className="text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl">
-                Tell us what you need to build, fix, or improve.
+                Tell us what you need to build, automate, or manufacture
+                better.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-white/82 sm:text-xl">
-                If you need a website, portal, mobile app, automation flow, or
-                a better version of something that already exists, send the
-                brief and we will help you shape the right next step.
+                If you need AI ERP, Pharma-Bot, Dental Clinic Bot, a school
+                platform, website, automation flow, or INGENIO GREEN
+                manufacturing support, send the brief and we will shape the
+                right next step.
               </p>
             </Animate>
 
@@ -257,7 +259,7 @@ export default function ContactPage() {
                 Give us the essentials and we will respond properly
               </h2>
               <p className="mt-4 text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-                Tell us what you want to build, what is not working, who the
+                Tell us what you want to build, what sector it serves, who the
                 users are, and what kind of timeline you have in mind.
               </p>
 
@@ -334,10 +336,10 @@ export default function ContactPage() {
                 </h3>
                 <div className="mt-6 grid gap-4">
                   {[
-                    "What you need built or improved",
+                    "What you need built, automated, or manufactured",
                     "Who will use it and what they need to do",
                     "Any rough deadline or launch target",
-                    "Links to the current site, product, or references",
+                    "Links to the current site, product, logos, or references",
                   ].map((item) => (
                     <div
                       key={item}

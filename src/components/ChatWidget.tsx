@@ -31,21 +31,21 @@ type SupportFormState = {
 
 const companyDB = {
   about:
-    "Ingenio Systems is a Zimbabwean software company building websites, mobile apps, portals, automation, and digital systems for schools, businesses, and growing teams.",
+    "Ingenio Systems is a Zimbabwean innovative tech company powered by INGENIO GREEN, building AI-driven ERP systems, healthcare bots, school platforms, websites, and green manufacturing solutions.",
   services:
-    "We build custom websites, mobile apps, business software, chatbots, portals, automation tools, and long-term support for digital products.",
+    "We build AI ERP systems, Pharma-Bot, Dental Clinic Bot, school management systems, websites, automation tools, and INGENIO GREEN manufacturing innovation.",
   contact:
     "Hotline: +263 77 280 0899 | Email: sales@ingeniosys.co.zw | WhatsApp: +263 77 280 0899",
   pricing:
-    "We provide guide pricing for websites, systems, mobile apps, automation, and support. If you want an exact quote, tell us the scope and timeline.",
+    "We provide guide pricing for websites, systems, automation, and support. AI, healthcare, school platform, and manufacturing scopes are quoted based on requirements.",
   portfolio:
-    "Our portfolio includes Fleet-Eye Tracking Systems, Invoicee, kchiyaka.com, and the Guinea Fowl High School website and portal experience.",
+    "Our portfolio includes Fleet-Eye Tracking Systems, Invoicee, kchiyaka.com, school website and portal work, and collaborations with UNICEF-KOICA-BOOST Fellowship and Amnesty International.",
   support:
     "For direct support, use WhatsApp for the fastest response or send a message here and we will route it to the right person.",
 };
 
 const initialMessage: ChatMessage = {
-  text: "Hello. What do you need help with today? You can ask about services, pricing, portfolio, contact details, or request direct support.",
+  text: "Hello. What do you need help with today? You can ask about AI ERP, healthcare bots, school systems, websites, green manufacturing, pricing, portfolio, or contact details.",
   isUser: false,
 };
 

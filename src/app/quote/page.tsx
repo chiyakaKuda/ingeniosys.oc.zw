@@ -13,21 +13,21 @@ import {
 
 const quoteAreas = [
   {
-    title: "Web Apps And Portals",
+    title: "AI ERP And Business Systems",
     description:
-      "Dashboards, business systems, portals, and custom websites built around your workflow.",
+      "Dashboards, ERP workflows, reporting tools, and business systems built around your operations.",
     icon: faCode,
   },
   {
-    title: "Mobile App Development",
+    title: "Healthcare And School Platforms",
     description:
-      "Android-ready and cross-platform app builds with clear delivery scope and rollout support.",
+      "Pharma-Bot, Dental Clinic Bot, school management systems, portals, and websites with clear rollout support.",
     icon: faMobileScreenButton,
   },
   {
-    title: "Automation And Product Support",
+    title: "Automation And Green Innovation",
     description:
-      "Process automation, chatbot integrations, maintenance, and continuous improvement work.",
+      "Chatbot integrations, workflow automation, product support, and INGENIO GREEN manufacturing ideas.",
     icon: faWandMagicSparkles,
   },
 ];
@@ -42,12 +42,12 @@ export default function QuotePage() {
               Get A Quote
             </p>
             <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-              Tell Us What You Need Built
+              Tell Us What You Need Built, Automated, Or Improved
             </h1>
             <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-white/80 sm:text-xl">
-              From mobile apps to business software and modern websites, we can
-              scope the work, recommend the right stack, and help you launch
-              with confidence.
+              From AI-driven ERP systems and healthcare bots to school
+              platforms, websites, and green manufacturing ideas, we can scope
+              the work and help you move with confidence.
             </p>
             <Link
               href="/contact"
@@ -85,9 +85,9 @@ export default function QuotePage() {
               What To Include
             </p>
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--color-muted)]">
-              Share your goal, target users, must-have features, preferred
-              launch timeline, and whether you need web, mobile, or both. That
-              gives us enough context to provide a useful estimate.
+              Share your goal, sector, target users, must-have features,
+              preferred launch timeline, and whether the work is AI, healthcare,
+              school systems, websites, automation, or manufacturing-related.
             </p>
             <Link
               href="/contact"

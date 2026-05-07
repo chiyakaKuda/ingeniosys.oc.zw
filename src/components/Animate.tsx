@@ -1,3 +1,4 @@
+// components/Animate.tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -8,41 +9,38 @@ type AnimateProps = {
   delay?: number;
 };
 
-export default function Animate({ children, className, delay }: AnimateProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
+export default function Animate({ children, className = "", delay = 0 }: AnimateProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const classes = ["animate-scroll", visible ? "is-visible" : null, className]
-    .filter(Boolean)
-    .join(" ");
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setVisible(true), delay);
+          observer.unobserve(node);
+        }
       },
-      { threshold: 0.2 },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+    return () => observer.unobserve(node);
+  }, [delay]);
 
   return (
     <div
       ref={ref}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-      className={classes}
+      className={`transition-all duration-700 ease-out ${
+        visible
+          ? "translate-y-0 opacity-100"
+          : "translate-y-8 opacity-0"
+      } ${className}`}
     >
       {children}
     </div>
   );
 }
-

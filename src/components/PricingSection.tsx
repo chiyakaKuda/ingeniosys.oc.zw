@@ -40,7 +40,7 @@ const pricingTabs: Array<{
   icon: IconDefinition;
 }> = [
   { id: "websites", label: "Websites", icon: faLaptopCode },
-  { id: "systems", label: "Systems", icon: faCubes },
+  { id: "systems", label: "AI / ERP", icon: faCubes },
   { id: "mobile", label: "Mobile Apps", icon: faMobileScreenButton },
   { id: "automation", label: "Automation", icon: faCommentDots },
   { id: "support", label: "Support", icon: faHeadset },
@@ -92,10 +92,10 @@ const pricingData: Record<PricingTabId, PricingPlan[]> = {
   ],
   systems: [
     {
-      title: "Core Portal",
+      title: "Core ERP Portal",
       price: "$800",
       description:
-        "A single workflow system or internal portal designed around one operational need.",
+        "A single workflow system or internal ERP-style portal designed around one operational need.",
       accent: "green",
       features: [
         "Role-based access",
@@ -105,10 +105,10 @@ const pricingData: Record<PricingTabId, PricingPlan[]> = {
       ],
     },
     {
-      title: "Integrated System",
+      title: "AI-Assisted System",
       price: "$1,500",
       description:
-        "A broader internal system that connects multiple workflows and improves reporting.",
+        "A broader internal system that connects workflows, improves reporting, and supports smarter operations.",
       accent: "gold",
       featured: true,
       features: [
@@ -120,10 +120,10 @@ const pricingData: Record<PricingTabId, PricingPlan[]> = {
       ],
     },
     {
-      title: "Custom Platform",
+      title: "Custom ERP Platform",
       price: "Custom",
       description:
-        "A tailored platform for teams that need deeper process design, integrations, and growth planning.",
+        "A tailored platform for teams that need deeper process design, integrations, automation, and growth planning.",
       accent: "teal",
       features: [
         "Discovery and technical planning",
@@ -323,12 +323,12 @@ export default function PricingSection() {
               Pricing Guide
             </span>
             <h2 className="mt-3 max-w-3xl text-3xl font-bold text-[var(--color-text)] sm:text-4xl lg:text-5xl">
-              Better pricing structure, less visual clutter
+              Guide pricing for common technology scopes
             </h2>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
-              Guide prices for the most common project shapes. Final cost still
-              depends on scope, integrations, rollout complexity, and support
-              requirements.
+              Guide prices for common website, ERP, automation, mobile, and
+              support scopes. Healthcare bots, school systems, and INGENIO GREEN
+              manufacturing work are quoted based on exact requirements.
             </p>
           </Animate>
 

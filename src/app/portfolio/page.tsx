@@ -14,18 +14,31 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const highlights = [
-  { label: "Real project screens", value: "5" },
-  { label: "Product types shown", value: "4" },
-  { label: "Sectors represented", value: "3" },
+  { label: "Innovation areas", value: "4" },
+  { label: "Collaborations noted", value: "2" },
+  { label: "Sectors represented", value: "4" },
 ];
 
 const capabilities = [
-  "Marketing websites",
+  "AI-driven ERP systems",
+  "Healthcare bots",
+  "School management systems",
+  "School websites",
   "Client dashboards",
-  "Student portals",
-  "Branded UI systems",
-  "Responsive web apps",
-  "Product landing experiences",
+  "Green manufacturing innovation",
+];
+
+const collaborations = [
+  {
+    title: "UNICEF-KOICA-BOOST Fellowship",
+    summary:
+      "Collaboration experience connected to innovation, entrepreneurship, and practical technology development.",
+  },
+  {
+    title: "Amnesty International",
+    summary:
+      "Collaboration experience connected to impact-focused work and digital delivery for real-world programs.",
+  },
 ];
 
 const caseStudies = [
@@ -44,9 +57,9 @@ const caseStudies = [
   },
   {
     title: "Invoicee Client Dashboard",
-    category: "Web Application",
+    category: "Business System",
     summary:
-      "A clean invoicing and client management interface focused on simple navigation, export actions, and day-to-day admin usability.",
+      "A clean invoicing and client management interface showing the kind of workflow thinking behind ERP dashboards and business systems.",
     image: "/invoicee.png",
     alt: "Invoicee client management dashboard screenshot",
     headerClass:
@@ -84,13 +97,13 @@ export default function PortfolioPage() {
                 Portfolio
               </span>
               <h1 className="text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl">
-                Real interfaces, real products, and work that already shipped.
+                Innovation work across systems, websites, education, and
+                operational products.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-white/82 sm:text-xl">
-                This portfolio shows the kind of work Ingenio Systems actually
-                builds: public-facing websites, dashboards, portals, and
-                branded digital products designed to look sharp and work
-                properly.
+                Ingenio Systems builds across AI-driven ERP, healthcare bots,
+                school platforms, websites, dashboards, and INGENIO GREEN
+                manufacturing ideas.
               </p>
             </Animate>
 
@@ -222,9 +235,9 @@ export default function PortfolioPage() {
               Project snapshots from real client and product work
             </h2>
             <p className="mt-4 text-lg leading-8 text-[var(--color-muted)]">
-              Each example below shows a different kind of interface: sales
-              websites, education platforms, internal tools, and personality-led
-              portfolio design.
+              Each example below shows part of the wider technology direction:
+              business websites, ERP-style dashboards, school systems, branded
+              product interfaces, and digital delivery.
             </p>
           </Animate>
         </div>
@@ -274,20 +287,56 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      <section className="py-20 sm:py-24 lg:py-28">
+        <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+          <Animate>
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-green)]">
+              Collaborations
+            </span>
+            <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
+              Collaboration experience behind the innovation work
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
+              Beyond client builds, Ingenio Systems has worked around
+              innovation and impact spaces connected to UNICEF-KOICA-BOOST
+              Fellowship and Amnesty International.
+            </p>
+          </Animate>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {collaborations.map((collaboration, index) => (
+              <Animate key={collaboration.title} delay={index * 80}>
+                <div className="h-full rounded-[30px] border border-[rgba(30,126,52,0.14)] bg-white p-7 shadow-[0_18px_45px_rgba(15,58,54,0.05)]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-green)]">
+                    Collaboration
+                  </p>
+                  <h3 className="mt-4 text-2xl font-semibold text-[var(--color-text)]">
+                    {collaboration.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-8 text-[var(--color-muted)]">
+                    {collaboration.summary}
+                  </p>
+                </div>
+              </Animate>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="full-bleed overflow-hidden bg-[linear-gradient(135deg,var(--color-light)_0%,#f8fcfa_50%,var(--color-green-light)_100%)] py-20 sm:py-24 lg:py-28">
         <div className="mx-auto w-[95vw] max-w-7xl px-4 sm:px-6 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-center">
             <Animate className="rounded-[32px] bg-[#0F3A36] p-8 text-white shadow-[0_28px_70px_rgba(15,58,54,0.16)] sm:p-10">
               <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
-                Education Build
+                Education Systems
               </span>
               <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-                Guinea Fowl High School digital presence and student access
+                School websites, portals, and management-system experience
               </h2>
               <p className="mt-5 text-base leading-8 text-white/76 sm:text-lg">
-                This work shows the public-facing school website and the student
-                portal login experience as part of one clearer school system:
-                information on the front end, account access on the inside.
+                Our education work includes school management systems, websites,
+                and portal experiences for schools including Guinea Fowl High
+                School, Ixar Academy, and other education clients.
               </p>
 
               <div className="mt-8 grid gap-4">
@@ -359,13 +408,13 @@ export default function PortfolioPage() {
               What This Work Shows
             </span>
             <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
-              Different visual directions, same delivery standard
+              Different innovation directions, same delivery standard
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
               The portfolio is intentionally varied. Some products need a clean
-              admin feel, some need a bold commercial landing page, and some
-              need more personality. The common thread is clarity, structure,
-              and responsiveness.
+              admin feel, some need a bold commercial landing page, some need a
+              school portal, and some need manufacturing or healthcare context.
+              The common thread is clarity, structure, and usefulness.
             </p>
           </Animate>
 
@@ -409,12 +458,13 @@ export default function PortfolioPage() {
               Next Project
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-              If you want work at this level, bring the brief and we will build
-              it properly.
+              Bring the next AI, healthcare, education, website, or green
+              manufacturing brief.
             </h2>
             <p className="mt-4 text-base leading-8 text-white/76 sm:text-lg">
-              We can help with business websites, internal platforms, portals,
-              responsive admin tools, and branded product interfaces.
+              We can help with AI ERP systems, healthtech bots, school
+              platforms, websites, dashboards, automation, and INGENIO GREEN
+              manufacturing ideas.
             </p>
           </div>
 

@@ -21,10 +21,11 @@ import {
 import ChatWidget from "@/components/ChatWidget";
 
 const navigation = [
-  { href: "/", label: "Home", icon: faHouse },
-  { href: "/services", label: "Services", icon: faCubes },
-  { href: "/portfolio", label: "Portfolio", icon: faBriefcase },
-  { href: "/about", label: "About", icon: faInfoCircle },
+  { href: "#hero", label: "Home", icon: faHouse },
+  { href: "#services", label: "Services", icon: faCubes },
+  { href: "#clients", label: "Clients", icon: faBriefcase },
+  { href: "#collaborations", label: "Partners", icon: faInfoCircle },
+  { href: "#about", label: "About", icon: faInfoCircle },
   { href: "/contact", label: "Contact", icon: faEnvelope },
   { href: "/quote", label: "Get a Quote", icon: faPaperPlane, emphasized: true },
 ];
@@ -38,6 +39,7 @@ export default function Layout({ children }: LayoutProps) {
   const isHome = pathname === "/";
   const year = new Date().getFullYear();
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const syncScroll = () => {
@@ -49,6 +51,39 @@ export default function Layout({ children }: LayoutProps) {
 
     return () => window.removeEventListener("scroll", syncScroll);
   }, []);
+
+  // Track active section for scroll spy
+  useEffect(() => {
+    if (!isHome) return;
+
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [isHome]);
+
+  // Smooth scroll handler for hash links
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+        setActiveSection(href.replace("#", ""));
+      }
+    }
+  };
 
   const inverted = isHome && !scrolled;
   const headerShellClasses = inverted
@@ -82,12 +117,18 @@ export default function Layout({ children }: LayoutProps) {
                 <span
                   className={`hidden text-[11px] font-semibold uppercase tracking-[0.22em] sm:block ${brandMetaClass}`}
                 >
-                  Web, Mobile And Custom Software
+                  Innovative Tech Company
                 </span>
               </div>
             </Link>
 
-            <ResponsiveNav items={navigation} inverted={inverted} />
+            {/* Pass activeSection + click handler to ResponsiveNav */}
+            <ResponsiveNav
+              items={navigation}
+              inverted={inverted}
+              activeSection={isHome ? activeSection : undefined}
+              onNavClick={handleNavClick}
+            />
           </div>
         </div>
       </header>
@@ -112,13 +153,19 @@ export default function Layout({ children }: LayoutProps) {
                     className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-105"
                   />
                 </Link>
-                <h4 className="text-2xl font-bold text-[var(--color-text)]">
-                  Ingenio Systems
-                </h4>
+                <div>
+                  <h4 className="text-2xl font-bold text-[var(--color-text)]">
+                    Ingenio Systems
+                  </h4>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                    Powered by INGENIO GREEN
+                  </p>
+                </div>
               </div>
               <p className="mb-6 leading-relaxed text-[var(--color-muted)]">
-                Building web platforms, mobile apps, portals, and business software
-                for schools, startups, NGOs, and growing companies.
+                An innovative tech company building AI-driven ERP systems,
+                healthcare bots, school platforms, websites, automation,
+                and sustainable manufacturing solutions.
               </p>
               <p className="text-sm text-[var(--color-muted)]">
                 Copyright {year} Ingenio Systems. All rights reserved.
@@ -128,41 +175,20 @@ export default function Layout({ children }: LayoutProps) {
             <div className="grid grid-cols-1 gap-8 md:col-span-2 sm:grid-cols-2 md:gap-16">
               <div>
                 <h5 className="mb-4 text-lg font-semibold text-[var(--color-text)]">
-                  Company
+                  Sections
                 </h5>
                 <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="/services"
-                      className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
-                    >
-                      Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/portfolio"
-                      className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
-                    >
-                      Portfolio
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/about"
-                      className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
-                    >
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/quote"
-                      className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline"
-                    >
-                      Get a Quote
-                    </Link>
-                  </li>
+                  {navigation.map((item) => (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item.href)}
+                        className="inline-block text-[var(--color-muted)] transition-all hover:text-[var(--color-green)] hover:underline cursor-pointer"
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
 

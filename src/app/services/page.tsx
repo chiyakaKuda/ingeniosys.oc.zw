@@ -7,82 +7,81 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
   faCalendarCheck,
-  faChartSimple,
   faCheckCircle,
-  faCommentDots,
   faCubes,
   faGraduationCap,
   faHeadset,
+  faIndustry,
   faLaptopCode,
+  faLeaf,
   faMobileScreenButton,
-  faScrewdriverWrench,
+  faRobot,
   faShieldHalved,
-  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 
 const services = [
   {
-    title: "Websites and landing pages",
+    title: "AI-driven ERP systems",
     description:
-      "Fast, credible websites that explain your offer clearly and convert interest into enquiries.",
-    icon: faLaptopCode,
-    points: ["Clear structure", "Responsive UI", "SEO-ready setup"],
+      "Business systems, dashboards, reporting tools, and operational workflows built with automation and AI support in mind.",
+    icon: faRobot,
+    points: ["ERP workflows", "Dashboards", "AI assistance"],
   },
   {
-    title: "Custom portals and systems",
+    title: "Healthcare bots and platforms",
     description:
-      "Internal tools, portals, and dashboards shaped around your workflow instead of generic software limits.",
+      "Healthtech tools including Pharma-Bot and Dental Clinic Bot for bookings, patient support, clinic operations, and communication.",
     icon: faCubes,
-    points: ["Role-based access", "Reporting", "Operational workflows"],
+    points: ["Pharma-Bot", "Dental Clinic Bot", "Clinic workflows"],
   },
   {
-    title: "Mobile app development",
+    title: "School management systems",
     description:
-      "Practical mobile experiences for customers, staff, and field teams that need reliability on the move.",
-    icon: faMobileScreenButton,
-    points: ["Android-ready", "Cross-platform", "Production support"],
+      "School platforms, websites, portals, and communication systems for education clients including Ixar Academy and other schools.",
+    icon: faGraduationCap,
+    points: ["School portals", "Websites", "Client support"],
   },
   {
-    title: "WhatsApp automation",
+    title: "Innovative manufacturing",
     description:
-      "Automated conversations for enquiries, routing, reminders, and support without losing the human handoff.",
-    icon: faCommentDots,
-    points: ["Lead capture", "Smart replies", "Team handover"],
+      "INGENIO GREEN manufacturing work focused on biodegradable plastic pellets for sustainable packaging applications.",
+    icon: faLeaf,
+    points: ["INGENIO GREEN", "Biodegradable pellets", "Packaging"],
   },
   {
-    title: "Analytics and visibility",
+    title: "Websites and digital products",
     description:
-      "Better reporting, search visibility, and performance insight so your digital product stays measurable.",
-    icon: faChartSimple,
-    points: ["SEO improvements", "Analytics setup", "Performance reviews"],
+      "Credible websites, landing pages, product interfaces, client dashboards, and mobile-ready experiences for real organizations.",
+    icon: faLaptopCode,
+    points: ["Responsive UI", "Product pages", "Client dashboards"],
   },
   {
-    title: "Support and iteration",
+    title: "Automation and support",
     description:
-      "Updates, fixes, maintenance, and post-launch improvements that keep the product useful over time.",
+      "Chatbots, WhatsApp flows, system integrations, post-launch improvements, and support that keeps products useful over time.",
     icon: faHeadset,
-    points: ["Monitoring", "Enhancements", "Responsive support"],
+    points: ["Chatbots", "Integrations", "Responsive support"],
   },
 ];
 
 const audiences = [
   {
-    title: "Schools and colleges",
+    title: "Healthcare providers",
     description:
-      "Admissions platforms, communication tools, portals, and systems that support day-to-day education operations.",
+      "Pharmacies, dental clinics, and health teams that need smarter communication, booking, and operational systems.",
+    icon: faRobot,
+  },
+  {
+    title: "Schools and education clients",
+    description:
+      "Schools that need management systems, public websites, portals, and tools that make daily administration easier.",
     icon: faGraduationCap,
   },
   {
-    title: "Growing businesses",
+    title: "Manufacturing and sustainability partners",
     description:
-      "Sales websites, client-facing experiences, booking flows, and internal software that support growth cleanly.",
-    icon: faUsers,
-  },
-  {
-    title: "Teams with manual processes",
-    description:
-      "Automation, dashboards, and workflow tools that reduce repeated admin work and improve visibility.",
-    icon: faScrewdriverWrench,
+      "Partners exploring biodegradable plastic pellets, sustainable packaging, and practical green manufacturing innovation.",
+    icon: faIndustry,
   },
 ];
 
@@ -128,16 +127,16 @@ export default function ServicesPage() {
           <div className="max-w-3xl text-white">
             <Animate className="flex flex-col gap-6">
               <span className="inline-flex w-fit items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-gold)]">
-                Services
+                Innovation Services
               </span>
               <h1 className="text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl">
-                Premium software services built to look sharp and work
-                properly.
+                Technology services across AI, healthcare, education, and green
+                manufacturing.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-white/82 sm:text-xl">
-                We design and build websites, mobile apps, portals, and
-                automation systems that solve the real job, feel credible, and
-                stay usable across devices.
+                Ingenio Systems, powered by INGENIO GREEN, builds AI-driven ERP
+                systems, healthcare bots, school platforms, websites, and
+                sustainable packaging innovation.
               </p>
             </Animate>
 
@@ -165,11 +164,11 @@ export default function ServicesPage() {
           <Animate delay={180}>
             <div className="rounded-[32px] border border-white/12 bg-white/10 p-6 text-white shadow-[0_24px_60px_rgba(7,17,28,0.2)] backdrop-blur-md sm:p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
-                What we fix
+                What we build
               </p>
               <h2 className="mt-4 text-2xl font-semibold leading-tight sm:text-3xl">
-                Better structure, stronger UI, and reliable delivery across
-                screen sizes.
+                Practical systems for sectors where technology can remove
+                friction and unlock new value.
               </h2>
               <div className="mt-8 grid gap-4">
                 {deliveryPrinciples.map((principle) => (
@@ -208,12 +207,12 @@ export default function ServicesPage() {
               Service Overview
             </span>
             <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl lg:text-5xl">
-              A cleaner service mix for real software delivery
+              A broader service mix for an innovative tech company
             </h2>
             <p className="mt-4 text-lg leading-8 text-[var(--color-muted)]">
-              These are the services clients ask us for most: websites, mobile
-              apps, internal systems, automation, and ongoing support, arranged
-              clearly so the page still reads well on both phone and desktop.
+              Our work now spans intelligent business systems, healthcare
+              automation, school platforms, websites, digital products, and
+              sustainable manufacturing under INGENIO GREEN.
             </p>
           </Animate>
         </div>
@@ -261,17 +260,17 @@ export default function ServicesPage() {
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Animate className="rounded-[32px] bg-[#0F3A36] p-8 text-white shadow-[0_28px_70px_rgba(15,58,54,0.16)] sm:p-10">
               <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
-                Better Fit
+                Sector Fit
               </span>
               <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-                Not just for schools. Built for any team that needs software to
-                work properly.
+                Not just for schools. Built for healthcare, education,
+                business, and green manufacturing.
               </h2>
               <p className="mt-5 text-base leading-8 text-white/76 sm:text-lg">
-                Ingenio Systems can still deliver education-focused systems, but
-                the service offering now reflects the wider work: business
-                sites, internal platforms, mobile products, automation, and
-                support.
+                School systems and websites remain part of the work, but the
+                company now presents a wider innovation portfolio: AI ERP,
+                healthtech bots, digital products, and biodegradable packaging
+                materials.
               </p>
             </Animate>
 
@@ -303,13 +302,12 @@ export default function ServicesPage() {
               Our Approach
             </span>
             <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
-              Software people can understand and use from the first screen
+              Technology people can understand and use from the first screen
             </h2>
             <p className="mt-4 text-lg leading-8 text-[var(--color-muted)]">
-              Before launch, we judge the work the same way your users will:
-              can they understand the offer quickly, find the next step without
-              guessing, and use the experience properly on mobile? That is the
-              standard we build to.
+              Before launch, we judge the work by real usage: can staff,
+              patients, students, clients, or partners understand it quickly and
+              use it properly in the environment where it matters?
             </p>
           </Animate>
         </div>
@@ -346,13 +344,13 @@ export default function ServicesPage() {
               Start here
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-              If the current experience feels weak, we can rebuild it
-              properly.
+              Bring the idea, workflow, or product gap. We will shape the
+              right technology around it.
             </h2>
             <p className="mt-4 text-base leading-8 text-white/76 sm:text-lg">
-              Tell us what you need to improve, what users are struggling with,
-              and what outcome matters most. We will scope the right service
-              mix around that.
+              Tell us whether you need an AI ERP system, healthcare bot, school
+              platform, website, automation flow, or green manufacturing
+              support. We will scope the right path.
             </p>
           </div>
 

@@ -45,15 +45,15 @@ const values = [
 
 const approach = [
   {
-    title: "We start with the real need",
+    title: "We start with the sector need",
     description:
-      "Every project begins by understanding the workflow, the users, and the business problem behind the request.",
+      "Every project begins by understanding the workflow, users, and real environment behind the technology request.",
     icon: faUsers,
   },
   {
-    title: "We build across web and mobile",
+    title: "We build across systems and products",
     description:
-      "Our work includes websites, portals, dashboards, automation, and mobile-ready product experiences.",
+      "Our work includes AI ERP systems, healthcare bots, school platforms, websites, dashboards, and automation.",
     icon: faMobileScreenButton,
   },
   {
@@ -71,7 +71,7 @@ const founders = [
     image: "/team/godfrey.jpeg",
     alt: "Godfrey Wapemha portrait",
     summary:
-      "Godfrey leads strategy, client relationships, and technology training, helping organizations adopt digital tools with confidence.",
+      "Godfrey leads strategy, client relationships, technology training, and INGENIO GREEN direction across software and innovation work.",
     qualification:
       "Bachelor of Technology in Engineering, Harare Institute of Technology",
     email: "director@ingeniosys.co.zw",
@@ -84,7 +84,7 @@ const founders = [
     image: "/team/kuda.jpg",
     alt: "Kudakwashe Chiyaka portrait",
     summary:
-      "Kuda leads product engineering and interface execution across websites, portals, dashboards, and branded digital systems.",
+      "Kuda leads product engineering and interface execution across AI systems, websites, portals, dashboards, and branded digital products.",
     qualification:
       "Bachelor of Technology in Computer Science, Harare Institute of Technology",
     email: "kudachiyaka@ingeniosys.co.zw",
@@ -117,14 +117,13 @@ export default function AboutPage() {
                 About Ingenio Systems
               </span>
               <h1 className="text-4xl font-bold leading-[1.02] sm:text-5xl lg:text-6xl">
-                A Zimbabwean software company building practical digital
-                products with care.
+                A Zimbabwean innovative tech company powered by INGENIO GREEN.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-white/82 sm:text-xl">
-                We started by helping schools communicate better online. Today
-                we build websites, mobile apps, portals, automation, and custom
-                systems for schools, businesses, and growing organizations that
-                need quality work and direct collaboration.
+                Ingenio Systems builds AI-driven ERP systems, healthcare tools
+                like Pharma-Bot and Dental Clinic Bot, school management
+                systems, websites, automation, and biodegradable packaging
+                innovation.
               </p>
             </Animate>
 
@@ -155,8 +154,8 @@ export default function AboutPage() {
                 What defines us
               </p>
               <h2 className="mt-4 text-2xl font-semibold leading-tight sm:text-3xl">
-                Small team, direct access, and software built around the real
-                problem.
+                Small team, direct access, and innovation built around real
+                operational problems.
               </h2>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[24px] border border-white/10 bg-black/10 px-5 py-4">
@@ -166,9 +165,9 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <div className="rounded-[24px] border border-white/10 bg-black/10 px-5 py-4">
-                  <p className="text-3xl font-bold text-white">Web + Mobile</p>
+                  <p className="text-3xl font-bold text-white">AI + Green</p>
                   <p className="mt-2 text-sm leading-6 text-white/70">
-                    Product work across websites, portals, apps, and systems
+                    Technology work across AI systems and INGENIO GREEN ideas
                   </p>
                 </div>
                 <div className="rounded-[24px] border border-white/10 bg-black/10 px-5 py-4">
@@ -196,18 +195,19 @@ export default function AboutPage() {
               Our Story
             </span>
             <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
-              Built from education roots, grown into broader software delivery
+              Built from education roots, grown into broader tech innovation
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
-              Ingenio Systems was shaped by work on the ground: schools that
-              needed better websites, clearer communication tools, and more
-              accessible digital systems. That work built our standards.
+              Ingenio Systems was shaped by practical work on the ground:
+              schools that needed better systems, organizations that needed
+              stronger digital tools, and teams that needed technology they
+              could actually use.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--color-muted)] sm:text-lg">
-              As clients asked for more, the company expanded into web
-              platforms, mobile-ready products, automation, dashboards, and
-              internal systems. The mission stayed the same: build technology
-              that is useful, clear, and realistic for the people who need it.
+              Today the company is positioned around innovation: AI-driven ERP
+              systems, healthcare bots, school management platforms, websites,
+              digital products, and sustainable manufacturing through INGENIO
+              GREEN.
             </p>
           </Animate>
 
@@ -242,9 +242,9 @@ export default function AboutPage() {
                 The standards behind every build
               </h2>
               <p className="mt-4 text-lg leading-8 text-[var(--color-muted)]">
-                These are not branding words for us. They shape how we scope
-                work, how we communicate, and how we judge whether a product is
-                ready to ship.
+                These standards shape how we scope technology, communicate with
+                clients, and judge whether a product or manufacturing idea is
+                ready for real use.
               </p>
             </Animate>
           </div>
@@ -275,13 +275,13 @@ export default function AboutPage() {
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-green)]">
               Founders
             </span>
-            <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl lg:text-5xl">
-              The people building the company
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-[var(--color-muted)]">
+              <h2 className="mt-3 text-3xl font-bold text-[var(--color-text)] sm:text-4xl lg:text-5xl">
+                The people building the company
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-[var(--color-muted)]">
               Ingenio Systems stays intentionally lean. That means clients work
-              directly with the people leading the product, not through layers
-              of handoff.
+              directly with the people leading the product, system, or
+              innovation path.
             </p>
           </Animate>
         </div>
@@ -345,7 +345,7 @@ export default function AboutPage() {
         <Animate delay={220}>
           <div className="mt-12 rounded-[30px] border border-[rgba(30,126,52,0.14)] bg-[var(--color-light)] px-6 py-6 text-center sm:px-8">
             <p className="text-lg font-semibold text-[var(--color-text)]">
-              Ingenio Systems is a remote Zimbabwean software company.
+              Ingenio Systems is a Zimbabwean innovative tech company powered by INGENIO GREEN.
             </p>
             <p className="mt-3 text-base leading-8 text-[var(--color-muted)]">
               Sales:{" "}
@@ -374,13 +374,13 @@ export default function AboutPage() {
               Work With Us
             </span>
             <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-              Tell us what you need to build, and talk directly to the team who
-              will shape it.
+              Tell us what you need to build, automate, digitize, or manufacture
+              better.
             </h2>
             <p className="mt-4 text-base leading-8 text-white/76 sm:text-lg">
-              Whether you need a website, a portal, a mobile app, or a custom
-              internal system, we can help define the right scope and move it
-              forward properly.
+              Whether you need AI ERP, healthcare bots, school systems,
+              websites, or green packaging innovation, we can help define the
+              right scope and move it forward properly.
             </p>
           </div>
 
