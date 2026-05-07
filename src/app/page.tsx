@@ -334,62 +334,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           CLIENT LOGOS
       ═══════════════════════════════════════════════════ */}
-      <section id="clients" className="mb-24 scroll-mt-28">
-        <Animate>
-          <div className="overflow-hidden rounded-[32px] border border-[rgba(30,126,52,0.10)] bg-[linear-gradient(135deg,var(--color-light)_0%,#f8fcfa_60%,var(--color-green-light)_100%)] px-6 py-10 sm:px-10">
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-green)]">
-                Trusted Across Industries
-              </span>
-              <h2 className="mt-3 text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
-                Products and platforms already in the wild
-              </h2>
-            </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-              {clientLogos.map((logo) => (
-                <div
-                  key={logo.name}
-                  className="group flex min-h-[160px] flex-col justify-between rounded-[24px] border border-[rgba(30,126,52,0.10)] bg-white/88 px-5 py-5 text-left shadow-[0_12px_30px_rgba(15,58,54,0.04)] transition duration-300 hover:-translate-y-1 hover:border-[var(--color-gold)]/35 hover:bg-white"
-                >
-                  <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                      {logo.eyebrow}
-                    </p>
-                    {logo.src ? (
-                      <div className="relative mt-4 h-16 w-full">
-                        <Image
-                          src={logo.src}
-                          alt={`${logo.name} logo`}
-                          fill
-                          className="object-contain object-left transition duration-300 group-hover:scale-[1.02]"
-                        />
-                      </div>
-                    ) : (
-                      <div className="mt-4 flex items-center gap-3">
-                        {logo.icon ? (
-                          <span
-                            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--color-light)] text-xl ${logo.accent}`}
-                          >
-                            <FontAwesomeIcon icon={logo.icon} />
-                          </span>
-                        ) : null}
-                        <p
-                          className={`text-2xl font-black leading-tight ${logo.accent}`}
-                        >
-                          {logo.mark}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                  <span className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-muted)] transition-colors group-hover:text-[var(--color-text)]">
-                    {logo.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Animate>
-      </section>
+    
 
       {/* ═══════════════════════════════════════════════════
           SELECTED WORK
