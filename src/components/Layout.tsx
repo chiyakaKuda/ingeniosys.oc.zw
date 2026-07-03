@@ -13,6 +13,7 @@ import {
 import {
   faBriefcase,
   faCubes,
+  faEnvelope,
   faHouse,
   faInfoCircle,
   faPaperPlane,
@@ -21,11 +22,17 @@ import ChatWidget from "@/components/ChatWidget";
 
 const navigation = [
   { href: "#hero", label: "Home", icon: faHouse },
-  { href: "#services", label: "Services", icon: faCubes },
-  { href: "#clients", label: "Clients", icon: faBriefcase },
-  { href: "#collaborations", label: "Partners", icon: faInfoCircle },
   { href: "#about", label: "About", icon: faInfoCircle },
-  { href: "#contact", label: "Start", icon: faPaperPlane, emphasized: true },
+  { href: "#services", label: "Services", icon: faCubes },
+  { href: "/portfolio", label: "Portfolio", icon: faBriefcase },
+  { href: "#collaborations", label: "Partners", icon: faInfoCircle },
+  { href: "#contact", label: "Contact", icon: faEnvelope },
+  {
+    href: "/quote",
+    label: "Start Project",
+    icon: faPaperPlane,
+    emphasized: true,
+  },
 ];
 
 type LayoutProps = {
@@ -88,51 +95,56 @@ export default function Layout({ children }: LayoutProps) {
     }
   };
 
-  const inverted = isHome && !scrolled;
-  const headerShellClasses = inverted
-    ? "border-white/15 bg-[rgba(15,58,54,0.38)] text-white shadow-[0_26px_70px_rgba(15,58,54,0.24)] backdrop-blur-xl"
-    : "border-[rgba(30,126,52,0.12)] bg-white/92 text-[var(--color-text)] shadow-[0_18px_45px_rgba(15,58,54,0.08)] backdrop-blur-xl";
-  const brandTextClass = inverted ? "text-white" : "text-[var(--color-text)]";
-  const brandMetaClass = inverted ? "text-white/72" : "text-[var(--color-muted)]";
+  const onHero = isHome && activeSection === "hero";
 
   return (
     <div className="flex min-h-screen flex-col bg-[var(--color-white)] text-[var(--color-text)]">
-      <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto flex w-[95vw] max-w-7xl justify-center px-2 sm:px-4 lg:px-6">
-          <div
-            className={`mt-4 flex w-fit max-w-full min-w-[290px] items-center justify-center gap-4 rounded-[999px] border px-5 py-3 transition-all duration-300 lg:w-full lg:justify-between lg:px-7 ${headerShellClasses}`}
+      <header
+        className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl transition-colors duration-300 ${
+          onHero
+            ? "border-b border-white/10 bg-[var(--hero-dark)]/70"
+            : `border-b border-black/[0.04] bg-white/96 ${
+                scrolled ? "shadow-[0_16px_42px_rgba(15,58,54,0.08)]" : "shadow-none"
+              }`
+        }`}
+      >
+        <div className="mx-auto flex h-[76px] w-[95vw] max-w-7xl items-center justify-between px-3 sm:px-4 lg:px-6">
+          <Link
+            href="/"
+            className="group flex min-w-0 items-center gap-3 lg:min-w-[280px]"
           >
-            <Link href="/" className="group flex min-w-0 items-center gap-3">
-              <Image
-                src="/logo-ing.png"
-                alt="Ingenio Systems logo"
-                width={56}
-                height={56}
-                className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14"
-                priority
-              />
-              <div className="min-w-0">
-                <span
-                  className={`block truncate text-base font-bold transition-colors duration-300 group-hover:text-[var(--color-gold)] sm:text-lg ${brandTextClass}`}
-                >
-                  Ingenio Systems
-                </span>
-                <span
-                  className={`hidden text-[11px] font-semibold uppercase tracking-[0.22em] sm:block ${brandMetaClass}`}
-                >
-                  Innovative Tech Company
-                </span>
-              </div>
-            </Link>
-
-            {/* Pass activeSection + click handler to ResponsiveNav */}
-            <ResponsiveNav
-              items={navigation}
-              inverted={inverted}
-              activeSection={isHome ? activeSection : undefined}
-              onNavClick={handleNavClick}
+            <Image
+              src="/logo-ing.png"
+              alt="Ingenio Systems logo"
+              width={48}
+              height={48}
+              className="h-11 w-11 object-contain transition-transform duration-300 group-hover:scale-105"
+              priority
             />
-          </div>
+            <div className="min-w-0">
+              <span
+                className={`block truncate text-lg font-extrabold leading-none tracking-[0.02em] transition-colors duration-300 group-hover:text-[var(--hero-primary)] ${
+                  onHero ? "text-[var(--hero-text)]" : "text-[#101828]"
+                }`}
+              >
+                Ingenio Systems
+              </span>
+              <span
+                className={`mt-1 hidden text-[10px] font-semibold uppercase tracking-[0.24em] sm:block ${
+                  onHero ? "text-white/55" : "text-[#667085]"
+                }`}
+              >
+                Powered by INGENIO GREEN
+              </span>
+            </div>
+          </Link>
+
+          <ResponsiveNav
+            items={navigation}
+            activeSection={isHome ? activeSection : undefined}
+            onNavClick={handleNavClick}
+            variant={onHero ? "light" : "dark"}
+          />
         </div>
       </header>
 
