@@ -178,7 +178,38 @@ a {
   }
 }
 
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitSpinReverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-orbit-spin {
+  animation: orbitSpin 26s linear infinite;
+}
+
+.animate-orbit-spin-reverse {
+  animation: orbitSpinReverse 26s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .animate-orbit-spin,
+  .animate-orbit-spin-reverse {
+    animation: none;
+  }
+
   .hero-cinematic-image {
     animation: none;
   }
