@@ -25,6 +25,15 @@
   --font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+html {
+  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none; /* IE / legacy Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none;            /* Chrome, Safari, Edge */
+}
+
 body {
   @apply bg-[var(--color-white)] text-[var(--color-text)] antialiased;
   overflow-x: hidden;
