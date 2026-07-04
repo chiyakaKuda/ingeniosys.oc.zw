@@ -3,6 +3,9 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import Animate from "@/components/Animate";
 import CapabilityOrbit from "@/components/CapabilityOrbit";
+import ProblemRelief from "@/components/ProblemRelief";
+import Capabilities from "@/components/Capabilities";
+import HowItWorks from "@/components/HowItWorks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -49,7 +52,7 @@ export default function HomeExperience() {
       ═══════════════════════════════════════════════════ */}
       <section
         id="hero"
-        className="group relative mb-16 flex h-dvh flex-col overflow-hidden full-bleed bg-[var(--hero-dark)] text-[var(--hero-text)]"
+        className="group relative flex h-dvh flex-col overflow-hidden full-bleed bg-[var(--hero-dark)] text-[var(--hero-text)]"
       >
         <div className="absolute inset-0 hero-image-layer">
           <Image
@@ -174,6 +177,10 @@ export default function HomeExperience() {
           </div>
         </div>
       </section>
+
+      <ProblemRelief />
+      <Capabilities />
+      <HowItWorks />
     </Layout>
   );
 }

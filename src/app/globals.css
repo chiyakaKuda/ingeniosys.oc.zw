@@ -220,10 +220,27 @@ a {
   animation: orbitFloat 4.5s ease-in-out infinite;
 }
 
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.06);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-orbit-spin,
   .animate-orbit-pulse,
-  .animate-orbit-float {
+  .animate-orbit-float,
+  .animate-glow-pulse {
     animation: none;
   }
 
