@@ -68,8 +68,8 @@ export default function HomeExperience() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,16,12,0.96)_0%,rgba(4,16,12,0.86)_38%,rgba(4,16,12,0.38)_68%,rgba(4,16,12,0.58)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-[linear-gradient(0deg,var(--hero-dark)_0%,rgba(4,16,12,0)_100%)]" />
 
-        <div className="relative mx-auto flex w-[95vw] max-w-7xl flex-1 items-center overflow-hidden px-4 pb-8 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-10 lg:pb-28 lg:pt-36">
-          <div className="grid w-full gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="relative mx-auto flex w-[95vw] max-w-7xl flex-1 items-center overflow-hidden px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-10 lg:pb-28 lg:pt-36">
+          <div className="grid w-full gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
             {/* LEFT: copy */}
             <div>
               <Animate>
@@ -112,7 +112,7 @@ export default function HomeExperience() {
                 </Link>
               </Animate>
 
-              <Animate delay={260} className="mt-8 hidden sm:block lg:mt-12">
+              <Animate delay={260} className="mt-8 hidden lg:mt-12 lg:block">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-[var(--hero-muted)]">
                   Industries we serve
                 </p>
@@ -171,8 +171,9 @@ export default function HomeExperience() {
               </Animate>
             </div>
 
-            {/* RIGHT: capability orbit (desktop) / stacked capabilities (mobile) */}
-            <Animate delay={200} className="relative">
+            {/* RIGHT: capability orbit — desktop only; the mobile hero stays
+                focused on the copy + CTAs so it fits the viewport cleanly */}
+            <Animate delay={200} className="relative hidden lg:block">
               <CapabilityOrbit />
             </Animate>
           </div>
