@@ -2,19 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import Animate from "@/components/Animate";
+import CapabilityOrbit from "@/components/CapabilityOrbit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
-  faBell,
   faBriefcase,
-  faCalendarCheck,
   faCheck,
-  faCircleQuestion,
-  faCreditCard,
   faGraduationCap,
-  faHeadset,
   faIndustry,
-  faReceipt,
   faStethoscope,
 } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
@@ -46,15 +41,6 @@ const industries = [
   },
 ];
 
-const capabilities = [
-  { label: "Bookings", icon: faCalendarCheck },
-  { label: "Orders", icon: faReceipt },
-  { label: "Reminders", icon: faBell },
-  { label: "Support", icon: faHeadset },
-  { label: "Payments", icon: faCreditCard },
-  { label: "FAQs", icon: faCircleQuestion },
-];
-
 export default function HomeExperience() {
   return (
     <Layout>
@@ -63,7 +49,7 @@ export default function HomeExperience() {
       ═══════════════════════════════════════════════════ */}
       <section
         id="hero"
-        className="group relative mb-16 flex h-screen flex-col overflow-hidden full-bleed bg-[var(--hero-dark)] text-[var(--hero-text)]"
+        className="group relative mb-16 flex h-dvh flex-col overflow-hidden full-bleed bg-[var(--hero-dark)] text-[var(--hero-text)]"
       >
         <div className="absolute inset-0 hero-image-layer">
           <Image
@@ -78,12 +64,12 @@ export default function HomeExperience() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,16,12,0.96)_0%,rgba(4,16,12,0.86)_38%,rgba(4,16,12,0.38)_68%,rgba(4,16,12,0.58)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-[linear-gradient(0deg,var(--hero-dark)_0%,rgba(4,16,12,0)_100%)]" />
 
-        <div className="relative mx-auto flex w-[95vw] max-w-7xl flex-1 items-center overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-10 lg:pb-28 lg:pt-36">
+        <div className="relative mx-auto flex w-[95vw] max-w-7xl flex-1 items-center overflow-hidden px-4 pb-8 pt-24 sm:px-6 sm:pb-20 sm:pt-28 lg:px-10 lg:pb-28 lg:pt-36">
           <div className="grid w-full gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             {/* LEFT: copy */}
             <div>
               <Animate>
-                <h1 className="max-w-xl text-5xl font-black leading-[0.98] sm:text-6xl lg:text-7xl">
+                <h1 className="max-w-xl text-3xl font-black leading-[1.05] sm:text-5xl sm:leading-[0.98] lg:text-7xl">
                   The Fastest Way to{" "}
                   <span className="text-[var(--hero-primary)]">
                     Serve More Customers.
@@ -92,7 +78,7 @@ export default function HomeExperience() {
               </Animate>
 
               <Animate delay={100}>
-                <p className="mt-7 max-w-xl text-lg leading-8 text-[var(--hero-muted)] sm:text-xl">
+                <p className="mt-4 max-w-xl text-sm leading-6 text-[var(--hero-muted)] sm:mt-7 sm:text-lg sm:leading-8 lg:text-xl">
                   We build WhatsApp chatbots that answer, book, and sell for
                   your business — the app your customers already use.
                   Trusted by schools, healthcare providers, and growing
@@ -102,13 +88,13 @@ export default function HomeExperience() {
 
               <Animate
                 delay={180}
-                className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-6 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4"
               >
                 <a
                   href="https://wa.me/263772800899"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[var(--hero-primary)] px-7 py-4 text-base font-bold text-[var(--hero-dark)] shadow-[0_24px_54px_rgba(0,168,107,0.28)] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--hero-primary-hover)]"
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[var(--hero-primary)] px-5 py-3 text-sm font-bold text-[var(--hero-dark)] shadow-[0_24px_54px_rgba(0,168,107,0.28)] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--hero-primary-hover)] sm:px-7 sm:py-4 sm:text-base"
                 >
                   <FontAwesomeIcon icon={faWhatsapp} className="text-base" />
                   Try it on WhatsApp
@@ -116,13 +102,13 @@ export default function HomeExperience() {
                 </a>
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center justify-center gap-3 rounded-full border border-white/25 px-7 py-4 text-base font-semibold text-[var(--hero-text)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--hero-primary)] hover:text-[var(--hero-primary)]"
+                  className="inline-flex items-center justify-center gap-3 rounded-full border border-white/25 px-5 py-3 text-sm font-semibold text-[var(--hero-text)] transition duration-300 hover:-translate-y-0.5 hover:border-[var(--hero-primary)] hover:text-[var(--hero-primary)] sm:px-7 sm:py-4 sm:text-base"
                 >
                   See Use Cases
                 </Link>
               </Animate>
 
-              <Animate delay={260} className="mt-12">
+              <Animate delay={260} className="mt-8 hidden sm:block lg:mt-12">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-[var(--hero-muted)]">
                   Industries we serve
                 </p>
@@ -181,43 +167,9 @@ export default function HomeExperience() {
               </Animate>
             </div>
 
-            {/* RIGHT: orbiting capability wheel */}
-            <Animate
-              delay={200}
-              className="relative mx-auto hidden h-[380px] w-[380px] lg:block"
-            >
-              <div className="absolute inset-0 rounded-full border border-white/15" />
-              <div className="absolute inset-10 rounded-full border border-white/10" />
-
-              <div className="absolute left-1/2 top-1/2 z-10 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--hero-primary)] shadow-[0_20px_50px_rgba(0,168,107,0.4)]">
-                <FontAwesomeIcon
-                  icon={faWhatsapp}
-                  className="text-4xl text-[var(--hero-dark)]"
-                />
-              </div>
-
-              <div className="absolute inset-0 animate-orbit-spin">
-                {capabilities.map((capability, index) => {
-                  const angle = (360 / capabilities.length) * index;
-                  return (
-                    <div
-                      key={capability.label}
-                      className="absolute left-1/2 top-1/2 h-0 w-0"
-                      style={{
-                        transform: `rotate(${angle}deg) translate(150px)`,
-                      }}
-                    >
-                      <div className="flex -translate-x-1/2 -translate-y-1/2 animate-orbit-spin-reverse items-center gap-2 whitespace-nowrap rounded-full bg-white px-3 py-2 text-xs font-bold text-[var(--hero-dark)] shadow-lg">
-                        <FontAwesomeIcon
-                          icon={capability.icon}
-                          className="text-[var(--hero-primary)]"
-                        />
-                        {capability.label}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+            {/* RIGHT: capability orbit (desktop) / stacked capabilities (mobile) */}
+            <Animate delay={200} className="relative">
+              <CapabilityOrbit />
             </Animate>
           </div>
         </div>
