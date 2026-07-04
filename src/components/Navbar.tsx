@@ -21,10 +21,27 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Close the mobile menu whenever the route changes (covers link clicks and
+  // browser back/forward). Reset-on-value-change during render — no effect.
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setOpen(false);
+  }
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    // Defer the initial read to a rAF callback so it isn't a synchronous
+    // setState in the effect body (and it catches load-mid-page refreshes).
+    const raf = requestAnimationFrame(onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -42,8 +59,18 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-transparent">
-      <div className="mx-auto flex h-[84px] w-[95vw] max-w-7xl items-center justify-between px-3 sm:px-4 lg:px-6">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled && !open
+          ? "border-b border-white/10 bg-[var(--hero-dark)]/85 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
+      <div
+        className={`mx-auto flex w-[95vw] max-w-7xl items-center justify-between px-3 transition-all duration-300 sm:px-4 lg:px-6 ${
+          scrolled ? "h-[66px]" : "h-[84px]"
+        }`}
+      >
         <Link href="/" className="group relative z-[60] flex min-w-0 items-center gap-3">
           <Image
             src="/logo.png"
@@ -110,7 +137,12 @@ export default function Navbar() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_0%,rgba(0,168,107,0.28),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_100%,rgba(0,168,107,0.12),transparent_45%)]" />
 
-        <div className="h-[84px] shrink-0" aria-hidden="true" />
+        <div
+          className={`shrink-0 transition-all duration-300 ${
+            scrolled ? "h-[66px]" : "h-[84px]"
+          }`}
+          aria-hidden="true"
+        />
 
         <nav
           aria-label="Mobile navigation"

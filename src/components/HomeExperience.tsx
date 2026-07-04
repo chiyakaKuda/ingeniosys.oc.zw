@@ -6,6 +6,7 @@ import CapabilityOrbit from "@/components/CapabilityOrbit";
 import ProblemRelief from "@/components/ProblemRelief";
 import Capabilities from "@/components/Capabilities";
 import HowItWorks from "@/components/HowItWorks";
+import CaseStudies from "@/components/CaseStudies";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -181,6 +182,7 @@ export default function HomeExperience() {
       <ProblemRelief />
       <Capabilities />
       <HowItWorks />
+      <CaseStudies />
     </Layout>
   );
 }
